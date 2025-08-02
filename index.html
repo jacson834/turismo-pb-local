@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turismo em Pimenta Bueno - Descubra a Amazônia</title>
+    <meta name="description" content="Descubra os pontos turísticos de Pimenta Bueno, Rondônia. Parque Ecológico, praias fluviais, pesca esportiva e muito mais na Amazônia.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* --- SELETOR DE TEMA DE COR --- */
+            /* Para alterar a cor principal do site, descomente UM dos temas abaixo. */
+            /* Deixe apenas o tema desejado com as linhas descomentadas. */
+
+            /* TEMA 1: Amazônia (Verde - Padrão) */
+            --primary: 134 57% 48%;      /* Verde escuro da floresta */
+            --primary-glow: 134 65% 65%; /* Verde claro vibrante */
+
+            /* TEMA 2: Rios e Céu (Azul) */
+            /*
+            --primary: 205 70% 45%;      /* Azul profundo do rio */
+            /* --primary-glow: 205 80% 65%; /* Azul claro do céu */
+            */
+
+            /* TEMA 3: Pôr do Sol (Laranja/Amarelo) */
+            /*
+            --primary: 35 90% 55%;       /* Laranja intenso */
+            /* --primary-glow: 45 95% 65%;  /* Amarelo dourado */
+            */
+
+            --secondary: 25 85% 55%;
+            --accent: 200 95% 45%;
+            --muted: 210 15% 96%;
+            --background: 0 0% 100%;
+            --foreground: 222 15% 15%;
+            
+            /* Gradientes */
+            --gradient-forest: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+            --gradient-water: linear-gradient(135deg, hsl(var(--accent)), hsl(200 85% 55%));
+            
+            /* Sombras */
+            --shadow-soft: 0 6px 24px -6px hsl(var(--primary) / 0.18);
+            --shadow-nature: 0 12px 45px -12px hsl(var(--primary) / 0.35);
+            
+            /* Transições */
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: hsl(var(--foreground));
+            background-color: hsl(var(--background));
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 40vh;
+            /* Adicionando a imagem de fundo com um gradiente por cima para legibilidade */
+            background: 
+                linear-gradient(135deg, hsl(var(--primary) / 0.9), hsl(var(--primary-glow) / 0.9)),
+                url('assets/images/Pimenta-Bueno-Ro.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="white" opacity="0.1"/><circle cx="80" cy="40" r="1" fill="white" opacity="0.1"/><circle cx="60" cy="80" r="1.5" fill="white" opacity="0.1"/></svg>');
+            background-size: 200px 200px;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-200px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: slideUp 1s ease-out 0.5s forwards;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            animation: slideUp 1s ease-out 1s forwards;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: white;
+            color: hsl(var(--primary));
+            box-shadow: var(--shadow-soft);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-nature);
+        }
+        
+        .btn:focus-visible {
+            outline: 3px solid hsl(var(--accent));
+            outline-offset: 2px;
+        }
+
+        /* Tourist Points Section */
+        .tourist-points {
+            padding: 80px 0;
+            background: linear-gradient(135deg, hsl(var(--background)), hsl(var(--muted)));
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: hsl(var(--foreground));
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: hsl(var(--foreground) / 0.7);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .tourist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .tourist-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+            border: 1px solid hsl(var(--muted));
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .tourist-card.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .tourist-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-nature);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 250px;
+            position: relative;
+            overflow: hidden;
+            background-color: hsl(var(--muted)); /* Cor de fundo enquanto a imagem carrega */
+        }
+
+        .card-image::before {
+            /* Removido o emoji placeholder para dar lugar à imagem real */
+            content: '';
+        }
+
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+            z-index: 0;
+        }
+
+        .card-img.active {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .card-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .card-image:hover .card-nav {
+            opacity: 1;
+        }
+
+        .card-nav.prev {
+            left: 10px;
+        }
+
+        .card-nav.next {
+            right: 10px;
+        }
+
+        
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: hsl(var(--primary));
+        }
+
+        .card-description {
+            color: hsl(var(--foreground) / 0.8);
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .card-address {
+            font-size: 0.9rem;
+            color: hsl(var(--foreground) / 0.6);
+            font-style: italic;
+        }
+
+        .card-address {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .card-address .lucide {
+            width: 1em;
+            height: 1em;
+            flex-shrink: 0;
+            margin-top: 0.2em;
+        }
+
+        .card-address a {
+            color: inherit;
+            text-decoration: none;
+            border-bottom: 1px dotted hsl(var(--foreground) / 0.6);
+            transition: var(--transition);
+        }
+
+        .card-address a:hover {
+            color: hsl(var(--accent));
+            border-bottom-color: hsl(var(--accent));
+        }
+
+        /* Photo Gallery */
+        .gallery {
+            padding: 80px 0;
+            background: hsl(var(--muted) / 0.3);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .gallery-item {
+            position: relative;
+            aspect-ratio: 4/3;
+            border-radius: 12px;
+            overflow: hidden;
+            /* Usando uma variável para a imagem, com o gradiente como fallback */
+            background-image: var(--bg-image, var(--gradient-forest));
+            transition: var(--transition);
+            cursor: pointer;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .gallery-item::before {
+            content: attr(data-title);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-weight: 600;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.4);
+            transition: var(--transition);
+            z-index: 1;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: var(--shadow-nature);
+        }
+
+        .gallery-item:hover::after {
+            background: rgba(0,0,0,0.6);
+        }
+
+        .gallery-item:focus-visible {
+            outline: 3px solid hsl(var(--accent));
+            outline-offset: 4px;
+        }
+
+        .gallery-item.hidden {
+            display: none;
+        }
+
+        .gallery-load-more {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* Modal (Lightbox) Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.9);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .modal.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 900px;
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+
+        @keyframes zoom {
+            from {transform:scale(0.4)}
+            to {transform:scale(1)}
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .modal-close:hover,
+        .modal-close:focus {
+            color: #bbb;
+            text-decoration: none;
+        }
+
+        #modal-caption {
+            margin: 15px auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+        }
+
+        /* Modal Navigation */
+        .modal-nav {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+            z-index: 1001;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-nav:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .modal-nav.prev {
+            left: 20px;
+        }
+
+        .modal-nav.next {
+            right: 20px;
+        }
+
+        .modal-nav .lucide {
+            width: 32px;
+            height: 32px;
+        }
+
+        /* Footer */
+        .site-footer {
+            /* Fundo com gradiente sutil para mais profundidade */
+            background: linear-gradient(135deg, hsl(var(--foreground)), hsl(var(--foreground) / 0.95));
+            color: hsl(var(--background) / 0.8);
+            padding: 60px 0 30px;
+            margin-top: 80px;
+            /* Borda superior decorativa para separar do conteúdo */
+            border-top: 4px solid hsl(var(--primary));
+            position: relative;
+        }
+
+        .footer-branding {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-logo {
+            max-width: 80px;
+            height: auto;
+            flex-shrink: 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: hsl(var(--background));
+            margin-bottom: 20px;
+        }
+
+        .footer-address {
+            line-height: 1.8;
+        }
+
+        .footer-address a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-address a:hover {
+            color: hsl(var(--background));
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: hsl(var(--background));
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .tourist-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 15px;
+            }
+
+            .modal-content {
+                width: 95%;
+            }
+        }
+
+        .footer-bottom {
+            border-top: 1px solid hsl(var(--background) / 0.2);
+            padding-top: 30px;
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: hsl(var(--background) / 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .footer-grid {
+                text-align: center;
+            }
+
+            .footer-branding {
+                flex-direction: column;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animation delays for cards */
+        .tourist-card:nth-child(1) { animation-delay: 0.1s; }
+        .tourist-card:nth-child(2) { animation-delay: 0.2s; }
+        .tourist-card:nth-child(3) { animation-delay: 0.3s; }
+        .tourist-card:nth-child(4) { animation-delay: 0.4s; }
+        .tourist-card:nth-child(5) { animation-delay: 0.5s; }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Turismo em Pimenta Bueno</h1>
+                <p>Descubra as maravilhas naturais da Amazônia em Rondônia. Explore parques ecológicos, praias fluviais, pesca esportiva e a rica história da região.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tourist Points Section -->
+    <section id="pontos-turisticos" class="tourist-points">
+        <div class="container">
+            <div class="section-title">
+                <h2>Pontos Turísticos</h2>
+                <p>Explore as maravilhas naturais e históricas que fazem de Pimenta Bueno um destino único na Amazônia</p>
+            </div>
+            
+            <div class="tourist-grid">
+                <!-- 
+                    IMPORTANTE: Substitua os nomes dos arquivos abaixo pelos nomes corretos das suas imagens.
+                    Eu usei os mesmos da galeria como exemplo.
+                -->
+                <div class="tourist-card" data-point="parque">
+                    <div class="card-image">
+                        <img src="assets/images/parqueecologico1.jpeg" alt="Vista 1 do Parque Ecológico" class="card-img active">
+                        <img src="assets/images/parqueecologico2.jpeg" alt="Vista 2 do Parque Ecológico" class="card-img">
+                        <button class="card-nav prev" aria-label="Foto anterior">&#10094;</button>
+                        <button class="card-nav next" aria-label="Próxima foto">&#10095;</button>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Parque Ecológico</h3>
+                        <p class="card-description">Mantido pela administração municipal, oferece contato com a natureza. Vegetação original em área de 6 km². 8 km de trilhas guiadas para admirar diferentes tipos de árvores.</p>
+                        <p class="card-address">
+                            <i data-lucide="map-pin"></i> <a href="https://www.google.com.br/maps/search/parque+natural+municipal+de+pimenta+bueno/@-11.7272085,-61.4920532,1023m/data=!3m1!1e3?entry=ttu" target="_blank" rel="noopener noreferrer">Rodovia RO 010, Km 34 - Coordenadas: 1143372; 06129265</a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="tourist-card" data-point="praia">
+                    <div class="card-image">
+                        <img src="assets/images/alagado1.JPG" alt="Praia fluvial em Pimenta Bueno" class="card-img active">
+                        <img src="assets/images/alagado2.JPG" alt="Vista 2 Praia fluvial em Pimenta Bueno" class="card-img">
+                        <button class="card-nav prev" aria-label="Foto anterior">&#10094;</button>
+                        <button class="card-nav next" aria-label="Próxima foto">&#10095;</button>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Praia</h3>
+                        <p class="card-description">Durante a estiagem, rios amazônicos revelam praias arenosas ideais para lazer. Localizadas na junção dos rios Pimenta Bueno e Comemoração, são populares pela qualidade das águas e fácil acesso.</p>
+                    </div>
+                </div>
+
+                <div class="tourist-card" data-point="pesca">
+                    <div class="card-image">
+                        <img src="assets/images/pesca.jpg" alt="Pesca esportiva na região" class="card-img active">
+                        <button class="card-nav prev" aria-label="Foto anterior">&#10094;</button>
+                        <button class="card-nav next" aria-label="Próxima foto">&#10095;</button>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Pesca (Lagoa)</h3>
+                        <p class="card-description">Pesca amadora popular nos rios Machado, Pimenta Bueno, Comemoração e Roosevelt. Turistas aproveitam a diversidade de peixes e a tranquilidade da floresta na estiagem.</p>
+                    </div>
+                </div>
+
+                <div class="tourist-card" data-point="fazenda">
+                    <div class="card-image">
+                        <img src="assets/images/fotos/fazenda-seringal.jpg" alt="Fazenda Seringal do Ouro" class="card-img active">
+                        <button class="card-nav prev" aria-label="Foto anterior">&#10094;</button>
+                        <button class="card-nav next" aria-label="Próxima foto">&#10095;</button>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Fazenda Seringal do Ouro (Açude)</h3>
+                        <p class="card-description">Remanescente da era do extrativismo da borracha, preserva infraestrutura para produção de látex. Visitantes conhecem todo o processo tradicional, incluindo defumação.</p>
+                        <p class="card-address"><i data-lucide="map-pin"></i> 5 km da BR-364 e 21 km da Vila Guaporé</p>
+                    </div>
+                </div>
+
+                <div class="tourist-card" data-point="agua">
+                    <div class="card-image">
+                        <img src="assets/images/fotos/fonte-agua.jpg" alt="Fonte de Água Mineral Lindágua" class="card-img active">
+                        <button class="card-nav prev" aria-label="Foto anterior">&#10094;</button>
+                        <button class="card-nav next" aria-label="Próxima foto">&#10095;</button>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Água Mineral Lindágua (Fonte de Água Mineral)</h3>
+                        <p class="card-description">Local de envase e gaseificação da água mineral. Interessante para quem quer conhecer o processo de produção local.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery -->
+    <section class="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Galeria de Fotos</h2>
+                <p>Contemple as belezas naturais que aguardam sua visita</p>
+            </div>
+            
+            <!-- 
+                IMPORTANTE: Verifique se os nomes dos arquivos abaixo (ex: 'parque-ecologico.jpg') 
+                correspondem EXATAMENTE aos nomes dos seus arquivos na pasta assets/images/fotos/
+            -->
+            <div class="gallery-grid">
+                <!-- Primeiras 6 fotos visíveis -->
+                <div class="gallery-item" data-title="Foto 1" style="--bg-image: url('assets/images/fotos/aeroporto.jpg');"></div>
+                <div class="gallery-item" data-title="Foto 2" style="--bg-image: url('assets/images/fotos/artenativa.jpg');"></div>
+                <div class="gallery-item" data-title="Foto 3" style="--bg-image: url('assets/images/fotos/cachoeira2.jpg');"></div>
+                <div class="gallery-item" data-title="Foto 4" style="--bg-image: url('assets/images/fotos/paramotor.jpg');"></div>
+                <div class="gallery-item" data-title="Foto 5" style="--bg-image: url('assets/images/fotos/pracadospioneiros.jpg');"></div>
+                <div class="gallery-item" data-title="Foto 6" style="--bg-image: url('assets/images/fotos/usina.jpg');"></div>
+
+                <!-- Restante das 40 fotos, inicialmente ocultas -->
+                <div class="gallery-item hidden" data-title="Foto 7" style="--bg-image: url('assets/images/fotos/NOME-DA-FOTO-07.jpg');"></div>
+                <div class="gallery-item hidden" data-title="Foto 8" style="--bg-image: url('assets/images/fotos/NOME-DA-FOTO-08.jpg');"></div>
+                <div class="gallery-item hidden" data-title="Foto 9" style="--bg-image: url('assets/images/fotos/NOME-DA-FOTO-09.jpg');"></div>
+                <div class="gallery-item hidden" data-title="Foto 10" style="--bg-image: url('assets/images/fotos/NOME-DA-FOTO-10.jpg');"></div>
+                <div class="gallery-item hidden" data-title="Foto 11" style="--bg-image: url('assets/images/fotos/NOME-DA-FOTO-11.jpg');"></div>
+                <div class="gallery-item hidden" data-title="Foto 12" style="--bg-image: url('assets/images/fotos/NOME-DA-FOTO-12.jpg');"></div>
+                <div class="gallery-item hidden" data-title="Foto 13" style="--bg-image: url('assets/images/fotos/NOME-DA-FOTO-13.jpg');"></div>
+                <div class="gallery-item hidden" data-title="Foto 14" style="--bg-image: url('assets/images/fotos/NOME-DA-FOTO-14.jpg');"></div>
+                <div class="gallery-item hidden" data-title="Foto 15" style="--bg-image: url('assets/images/fotos/NOME-DA-FOTO-15.jpg');"></div>
+                <div class="gallery-item hidden" data-title="Foto 16" style="--bg-image: url('assets/images/fotos/NOME-DA-FOTO-16.jpg');"></div>
+                <div class="gallery-item hidden" data-title="Foto 17" style="--bg-image: url('assets/images/fotos/NOME-DA-FOTO-17.jpg');"></div>
+                <div class="gallery-item hidden" data-title="Foto 18" style="--bg-image: url('assets/images/fotos/NOME-DA-FOTO-18.jpg');"></div>
+                <div class="gallery-item hidden" data-title="Foto 19" style="--bg-image: url('assets/images/fotos/NOME-DA-FOTO-19.jpg');"></div>
+                <div class="gallery-item hidden" data-title="Foto 20" style="--bg-image: url('assets/images/fotos/NOME-DA-FOTO-20.jpg');"></div>
+                <div class="gallery-item hidden" data-title="Foto 21" style="--bg-image: url('assets/images/fotos/NOME-DA-FOTO-21.jpg');"></div>
+                <div class="gallery-item hidden" data-title="Foto 22" style="--bg-image: url('assets/images/fotos/NOME-DA-FOTO-22.jpg');"></div>
+                <div class="gallery-item hidden" data-title="Foto 23" style="--bg-image: url('assets/images/fotos/NOME-DA-FOTO-23.jpg');"></div>
+                <div class="gallery-item hidden" data-title="Foto 24" style="--bg-image: url('assets/images/fotos/NOME-DA-FOTO-24.jpg');"></div>
+                <div class="gallery-item hidden" data-title="Foto 25" style="--bg-image: url('assets/images/fotos/NOME-DA-FOTO-25.jpg');"></div>
+                <div class="gallery-item hidden" data-title="Foto 26" style="--bg-image: url('assets/images/fotos/NOME-DA-FOTO-26.jpg');"></div>
+                <div class="gallery-item hidden" data-title="Foto 27" style="--bg-image: url('assets/images/fotos/NOME-DA-FOTO-27.jpg');"></div>
+                <div class="gallery-item hidden" data-title="Foto 28" style="--bg-image: url('assets/images/fotos/NOME-DA-FOTO-28.jpg');"></div>
+                <div class="gallery-item hidden" data-title="Foto 29" style="--bg-image: url('assets/images/fotos/NOME-DA-FOTO-29.jpg');"></div>
+                <div class="gallery-item hidden" data-title="Foto 30" style="--bg-image: url('assets/images/fotos/NOME-DA-FOTO-30.jpg');"></div>
+                <div class="gallery-item hidden" data-title="Foto 31" style="--bg-image: url('assets/images/fotos/NOME-DA-FOTO-31.jpg');"></div>
+                <div class="gallery-item hidden" data-title="Foto 32" style="--bg-image: url('assets/images/fotos/NOME-DA-FOTO-32.jpg');"></div>
+                <div class="gallery-item hidden" data-title="Foto 33" style="--bg-image: url('assets/images/fotos/NOME-DA-FOTO-33.jpg');"></div>
+                <div class="gallery-item hidden" data-title="Foto 34" style="--bg-image: url('assets/images/fotos/NOME-DA-FOTO-34.jpg');"></div>
+                <div class="gallery-item hidden" data-title="Foto 35" style="--bg-image: url('assets/images/fotos/NOME-DA-FOTO-35.jpg');"></div>
+                <div class="gallery-item hidden" data-title="Foto 36" style="--bg-image: url('assets/images/fotos/NOME-DA-FOTO-36.jpg');"></div>
+                <div class="gallery-item hidden" data-title="Foto 37" style="--bg-image: url('assets/images/fotos/NOME-DA-FOTO-37.jpg');"></div>
+                <div class="gallery-item hidden" data-title="Foto 38" style="--bg-image: url('assets/images/fotos/NOME-DA-FOTO-38.jpg');"></div>
+                <div class="gallery-item hidden" data-title="Foto 39" style="--bg-image: url('assets/images/fotos/NOME-DA-FOTO-39.jpg');"></div>
+                <div class="gallery-item hidden" data-title="Foto 40" style="--bg-image: url('assets/images/fotos/NOME-DA-FOTO-40.jpg');"></div>
+                <div class="gallery-item hidden" data-title="Foto 41" style="--bg-image: url('assets/images/fotos/NOME-DA-FOTO-41.jpg');"></div>
+                <div class="gallery-item hidden" data-title="Foto 42" style="--bg-image: url('assets/images/fotos/NOME-DA-FOTO-42.jpg');"></div>
+                <div class="gallery-item hidden" data-title="Foto 43" style="--bg-image: url('assets/images/fotos/NOME-DA-FOTO-43.jpg');"></div>
+                <div class="gallery-item hidden" data-title="Foto 44" style="--bg-image: url('assets/images/fotos/NOME-DA-FOTO-44.jpg');"></div>
+                <div class="gallery-item hidden" data-title="Foto 45" style="--bg-image: url('assets/images/fotos/NOME-DA-FOTO-45.jpg');"></div>
+                <div class="gallery-item hidden" data-title="Foto 46" style="--bg-image: url('assets/images/fotos/NOME-DA-FOTO-46.jpg');"></div>
+            </div>
+
+            <div class="gallery-load-more">
+                <button id="load-more-btn" class="btn btn-primary">Veja Mais</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column footer-branding">
+                    <img src="assets/images/brasao.png" alt="Brasão da Prefeitura de Pimenta Bueno" class="footer-logo">
+                    <div>
+                        <h3 class="footer-title">Prefeitura de Pimenta Bueno</h3>
+                        <div class="footer-address">
+                            <a href="https://www.google.com/maps/place/Prefeitura+de+Pimenta+Bueno/@-11.670817,-61.1883675,80m/data=!3m1!1e3!4m6!3m5!1s0x93b7e5d11ca56f83:0x57d5df651de4f8c3!8m2!3d-11.6708446!4d-61.1884997!16s%2Fg%2F1tdx0mq7?entry=ttu&g_ep=EgoyMDI1MDczMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">
+                                Av. Castelo Branco, 1046<br>
+                                Pimenta Bueno – RO
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">Atendimento</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://wa.me/5569981162254" target="_blank" rel="noopener noreferrer"><i data-lucide="phone"></i> Balcão: (69) 98116-2254</a></li>
+                        <li><a href="https://wa.me/556998169989" target="_blank" rel="noopener noreferrer"><i data-lucide="phone"></i> Ouvidoria: (69) 98169-9989</a></li>
+                        <li><a href="mailto:gabinete@pimentabueno.ro.gov.br"><i data-lucide="mail"></i> gabinete@pimentabueno.ro.gov.br</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Prefeitura Municipal de Pimenta Bueno - Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal/Lightbox para a Galeria -->
+    <div id="gallery-modal" class="modal">
+        <span class="modal-close" aria-label="Fechar">&times;</span>
+        <button class="modal-nav prev" aria-label="Foto anterior"><i data-lucide="chevron-left"></i></button>
+        <button class="modal-nav next" aria-label="Próxima foto"><i data-lucide="chevron-right"></i></button>
+        <img class="modal-content" id="modal-image" alt="Imagem da galeria em tamanho ampliado">
+        <div id="modal-caption"></div>
+    </div>
+
+    <script>
+        // Animação dos cards com IntersectionObserver (mais performático)
+        const cards = document.querySelectorAll('.tourist-card');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                    // Opcional: parar de observar o elemento depois que ele já foi animado
+                    // observer.unobserve(entry.target); 
+                }
+            });
+        }, {
+            threshold: 0.1 // A animação começa quando 10% do card estiver visível
+        });
+
+        cards.forEach(card => {
+            observer.observe(card);
+        });
+
+        // O smooth scroll já é feito pelo CSS: html { scroll-behavior: smooth; }
+        // A função JS abaixo não é mais necessária.
+        // document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        //     anchor.addEventListener('click', function (e) {
+        //         e.preventDefault();
+        //         document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+        //     });
+        // });
+
+        // Efeito de parallax no hero (otimizado para mais fluidez)
+        const hero = document.querySelector('.hero');
+        let lastKnownScrollPosition = 0;
+        let ticking = false;
+
+        function doParallax(scrollPos) {
+            if (hero) {
+                const rate = scrollPos * -0.5;
+                hero.style.transform = `translateY(${rate}px)`;
+            }
+        }
+
+        // Event listeners
+        window.addEventListener('scroll', function() {
+            lastKnownScrollPosition = window.pageYOffset;
+
+            if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    doParallax(lastKnownScrollPosition);
+                    ticking = false;
+                });
+
+                ticking = true;
+            }
+        }, { passive: true });
+
+        // Lógica para o Modal da Galeria (Lightbox) com Navegação
+        const modal = document.getElementById("gallery-modal");
+        const modalImg = document.getElementById("modal-image");
+        const captionText = document.getElementById("modal-caption");
+        const closeModalBtn = document.querySelector(".modal-close");
+        const modalPrevBtn = document.querySelector(".modal-nav.prev");
+        const modalNextBtn = document.querySelector(".modal-nav.next");
+
+        let currentGallery = [];
+        let currentIndex = 0;
+
+        function updateModalContent(item) {
+            if (!item) return;
+            const style = window.getComputedStyle(item);
+            const bgImage = style.getPropertyValue('--bg-image');
+            if (!bgImage) return;
+
+            const match = bgImage.match(/url\(['"]?(.*?)['"]?\)/);
+            if (!match || !match[1]) return;
+
+            const imageUrl = match[1];
+            const title = item.getAttribute('data-title');
+
+            modalImg.src = imageUrl;
+            captionText.innerHTML = title;
+        }
+
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', function() {
+                // Pega a lista de itens visíveis no momento do clique
+                currentGallery = Array.from(document.querySelectorAll('.gallery-item:not(.hidden)'));
+                currentIndex = currentGallery.indexOf(this);
+                
+                updateModalContent(this);
+                modal.classList.add('active');
+                lucide.createIcons(); // Renderiza os ícones de seta no modal
+            });
+        });
+
+        function showNextImage() {
+            currentIndex = (currentIndex + 1) % currentGallery.length;
+            updateModalContent(currentGallery[currentIndex]);
+        }
+
+        function showPrevImage() {
+            currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+            updateModalContent(currentGallery[currentIndex]);
+        }
+
+        modalNextBtn.addEventListener('click', showNextImage);
+        modalPrevBtn.addEventListener('click', showPrevImage);
+
+        function closeModal() {
+            modal.classList.remove('active');
+        }
+
+        closeModalBtn.addEventListener('click', closeModal);
+
+        modal.addEventListener('click', (e) => {
+            // Fecha se clicar no fundo, mas não nas setas
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (!modal.classList.contains('active')) return;
+
+            if (e.key === "Escape") closeModal();
+            if (e.key === "ArrowRight") showNextImage();
+            if (e.key === "ArrowLeft") showPrevImage();
+        });
+
+        // Lógica para o botão "Veja Mais" da galeria
+        const loadMoreBtn = document.getElementById('load-more-btn');
+        if (loadMoreBtn) {
+            loadMoreBtn.addEventListener('click', function() {
+                const hiddenItems = document.querySelectorAll('.gallery-item.hidden');
+                hiddenItems.forEach(item => {
+                    item.classList.remove('hidden');
+                });
+
+                // Esconde o botão depois de carregar as imagens
+                this.style.display = 'none';
+            });
+        }
+
+        // Inicializa os mini-carrosséis dos cards
+        document.querySelectorAll('.tourist-card .card-image').forEach(container => {
+            const images = container.querySelectorAll('.card-img');
+            const prevBtn = container.querySelector('.card-nav.prev');
+            const nextBtn = container.querySelector('.card-nav.next');
+            let currentIndex = 0;
+
+            // Se houver 1 foto ou menos, esconde as setas
+            if (images.length <= 1) {
+                if (prevBtn) prevBtn.style.display = 'none';
+                if (nextBtn) nextBtn.style.display = 'none';
+                return;
+            }
+
+            function showImage(index) {
+                images.forEach((img, i) => {
+                    img.classList.toggle('active', i === index);
+                });
+            }
+
+            prevBtn.addEventListener('click', (e) => {
+                e.stopPropagation(); // Impede que o clique afete outros elementos
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                showImage(currentIndex);
+            });
+
+            nextBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                currentIndex = (currentIndex + 1) % images.length;
+                showImage(currentIndex);
+            });
+        });
+
+        // Render Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
