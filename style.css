@@ -1,0 +1,976 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* --- SELETOR DE TEMA DE COR --- */
+    /* Para alterar a cor principal do site, descomente UM dos temas abaixo. */
+    /* Deixe apenas o tema desejado com as linhas descomentadas. */
+
+    /* TEMA 1: Amazônia (Verde - Padrão) */
+    /* --primary: 134 57% 48%;      /* Verde escuro da floresta */
+    /* --primary-glow: 134 65% 65%; /* Verde claro vibrante */
+
+    /* TEMA 2: Rios e Céu (Azul) */
+    
+    --primary: 205 70% 45%;      /* Azul profundo do rio */
+    --primary-glow: 205 80% 65%; /* Azul claro do céu */
+    
+
+    /* TEMA 3: Pôr do Sol (Laranja/Amarelo) */
+    /*
+    --primary: 35 90% 55%;       /* Laranja intenso */
+    /* --primary-glow: 45 95% 65%;  /* Amarelo dourado */
+    */
+
+    --secondary: 25 85% 55%;
+    --accent: 200 95% 45%;
+    --muted: 210 15% 96%;
+    --background: 0 0% 100%;
+    --foreground: 222 15% 15%;
+    
+    /* Gradientes */
+    --gradient-forest: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-water: linear-gradient(135deg, hsl(var(--accent)), hsl(200 85% 55%));
+    
+    /* Sombras */
+    --shadow-soft: 0 6px 24px -6px hsl(var(--primary) / 0.18);
+    --shadow-nature: 0 12px 45px -12px hsl(var(--primary) / 0.35);
+    
+    /* Transições */
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Header e Navegação */
+.main-header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: hsla(var(--background), 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 900;
+    border-bottom: 1px solid hsl(var(--muted));
+    transition: var(--transition);
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.site-logo a {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: hsl(var(--primary));
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-flag {
+    height: 30px;
+    width: auto;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.main-nav ul {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: hsl(var(--foreground) / 0.8);
+    font-weight: 500;
+    padding: 8px 4px;
+    border-bottom: 2px solid transparent;
+    transition: var(--transition);
+}
+
+.main-nav a:hover, .main-nav a.active {
+    color: hsl(var(--primary));
+    border-bottom-color: hsl(var(--primary));
+}
+
+/* Botão do Menu Mobile (Hambúrguer) */
+.mobile-nav-toggle {
+    display: none; /* Escondido em telas grandes */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 999;
+}
+
+.mobile-nav-toggle .lucide {
+    color: hsl(var(--primary));
+}
+
+.mobile-nav-toggle .icon-close {
+    display: none;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: hsl(var(--foreground));
+    background-color: hsl(var(--background));
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 60vh; /* Aumentado para dar mais impacto visual */
+    /* Adicionando uma camada escura sutil para melhorar a legibilidade do texto */
+    background: 
+        linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), /* Camada escura para contraste */
+        url('assets/images/Pimenta-Bueno-Ro.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="white" opacity="0.1"/><circle cx="80" cy="40" r="1" fill="white" opacity="0.1"/><circle cx="60" cy="80" r="1.5" fill="white" opacity="0.1"/></svg>');
+    background-size: 200px 200px;
+    animation: float 20s infinite linear;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-200px); }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: slideUp 1s ease-out 0.5s forwards;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5); /* Sombra mais forte para destacar o texto */
+}
+
+.hero p {
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0;
+    animation: slideUp 1s ease-out 1s forwards;
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.4); /* Sombra mais forte para destacar o texto */
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: var(--transition);
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background: white;
+    color: hsl(var(--primary));
+    box-shadow: var(--shadow-soft);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-nature);
+}
+
+.btn:focus-visible {
+    outline: 3px solid hsl(var(--accent));
+    outline-offset: 2px;
+}
+
+/* Tourist Points Section */
+.tourist-points {
+    padding: 80px 0;
+    background: linear-gradient(135deg, hsl(var(--background)), hsl(var(--muted)));
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: hsl(var(--foreground));
+}
+
+.section-title p {
+    font-size: 1.2rem;
+    color: hsl(var(--foreground) / 0.7);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.tourist-grid {
+    /* Alterado para flexbox para melhor controle de alinhamento */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centraliza os cards */
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.tourist-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition);
+    border: 1px solid hsl(var(--muted));
+    opacity: 0;
+    transform: translateY(30px);
+    /* Define a largura do card para o layout flex */
+    width: 350px;
+}
+
+.tourist-card.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Classe utilitária para centralizar um card em uma grid */
+.center-card {
+    justify-self: center;
+}
+
+.tourist-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-nature);
+}
+
+.card-image {
+    width: 100%;
+    height: 250px;
+    position: relative;
+    overflow: hidden;
+    background-color: hsl(var(--muted)); /* Cor de fundo enquanto a imagem carrega */
+}
+
+.card-image::before {
+    /* Removido o emoji placeholder para dar lugar à imagem real */
+    content: '';
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+    z-index: 0;
+}
+
+.card-img.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.card-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.card-image:hover .card-nav {
+    opacity: 1;
+}
+
+.card-nav.prev {
+    left: 10px;
+}
+
+.card-nav.next {
+    right: 10px;
+}
+
+
+.card-content {
+    padding: 25px;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: hsl(var(--primary));
+}
+
+.card-description {
+    color: hsl(var(--foreground) / 0.8);
+    margin-bottom: 15px;
+    line-height: 1.7;
+}
+
+/* Estilos para texto expansível */
+.expandable-text {
+    /* Limita a altura inicial. Ajuste para ~4-5 linhas de texto. */
+    max-height: 120px; 
+    overflow: hidden;
+    position: relative;
+    transition: max-height 0.4s ease-out;
+}
+
+.expandable-text .card-description {
+    margin-bottom: 0; /* Remove a margem do parágrafo interno */
+}
+
+/* Adiciona um gradiente suave no final do texto cortado */
+.expandable-text:not(.expanded)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: linear-gradient(to top, white, rgba(255, 255, 255, 0));
+}
+
+.expandable-text.expanded {
+    max-height: 1000px; /* Valor alto para garantir que todo o conteúdo seja visível */
+}
+
+.read-more-btn {
+    background: none;
+    border: none;
+    color: hsl(var(--primary));
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: inherit;
+    font-size: 0.9rem;
+}
+
+.card-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.view-gallery-btn {
+    background: none;
+    border: 1px solid hsl(var(--muted));
+    color: hsl(var(--foreground) / 0.7);
+    font-weight: 500;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: var(--transition);
+}
+
+.view-gallery-btn:hover {
+    background: hsl(var(--muted));
+    color: hsl(var(--primary));
+}
+
+.view-gallery-btn .lucide {
+    width: 1em;
+    height: 1em;
+}
+
+.card-address {
+    font-size: 0.9rem;
+    color: hsl(var(--foreground) / 0.6);
+    font-style: italic;
+}
+
+.card-address {
+    display: flex;
+    margin-top: 10px;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.card-address .lucide {
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+    margin-top: 0.2em;
+}
+
+.card-address a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px dotted hsl(var(--foreground) / 0.6);
+    transition: var(--transition);
+}
+
+.card-address a:hover {
+    color: hsl(var(--accent));
+    border-bottom-color: hsl(var(--accent));
+}
+
+/* Photo Gallery */
+.gallery {
+    padding: 80px 0;
+    background: hsl(var(--muted) / 0.3);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.gallery-item {
+    position: relative;
+    aspect-ratio: 4/3;
+    border-radius: 12px;
+    overflow: hidden;
+    /* Usando uma variável para a imagem, com o gradiente como fallback */
+    background-image: var(--bg-image, var(--gradient-forest));
+    transition: var(--transition);
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+}
+
+.gallery-item::before {
+    content: attr(data-title);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 15px;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    z-index: 2;
+    font-size: 0.95rem;
+}
+
+.gallery-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 35%;
+    background: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0));
+    transition: var(--transition);
+    z-index: 1;
+}
+
+.gallery-item:hover {
+    transform: scale(1.03);
+    box-shadow: var(--shadow-nature);
+}
+
+.gallery-item:hover::after {
+    height: 40%;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0));
+}
+
+.gallery-item:focus-visible {
+    outline: 3px solid hsl(var(--accent));
+    outline-offset: 4px;
+}
+
+.gallery-item.hidden {
+    display: none;
+}
+
+.gallery-load-more {
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* Modal (Lightbox) Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.9);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.modal.active {
+    display: block;
+    opacity: 1;
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 900px;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+#modal-video {
+    /* Garante que o vídeo também use a largura máxima e tenha margem automática */
+    max-height: 80vh; /* Evita que o vídeo fique muito alto */
+}
+
+@keyframes zoom {
+    from {transform:scale(0.4)}
+    to {transform:scale(1)}
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+    color: #bbb;
+    text-decoration: none;
+}
+
+#modal-caption {
+    margin: 15px auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+}
+
+/* Modal Navigation */
+.modal-nav {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-nav:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.modal-nav.prev {
+    left: 20px;
+}
+
+.modal-nav.next {
+    right: 20px;
+}
+
+.modal-nav .lucide {
+    width: 32px;
+    height: 32px;
+}
+
+/* Botão Voltar ao Topo */
+.back-to-top-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: hsl(var(--primary));
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: var(--shadow-nature);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(100px);
+    transition: opacity 0.4s, visibility 0.4s, transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.back-to-top-btn.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top-btn:hover {
+    background: hsl(var(--primary-glow));
+    transform: translateY(-3px);
+}
+
+/* Footer */
+.site-footer {
+    /* Fundo com gradiente sutil para mais profundidade */
+    background: linear-gradient(135deg, hsl(var(--foreground)), hsl(var(--foreground) / 0.95));
+    color: hsl(var(--background) / 0.8);
+    padding: 40px 0 20px;
+    margin-top: 60px;
+    /* Borda superior decorativa para separar do conteúdo */
+    border-top: 4px solid hsl(var(--primary));
+    position: relative;
+}
+
+.footer-branding {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-logo {
+    max-width: 60px;
+    height: auto;
+    flex-shrink: 0;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.footer-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: hsl(var(--background));
+    margin-bottom: 15px;
+}
+
+.footer-address {
+    line-height: 1.7;
+}
+
+.footer-address a {
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-address a:hover {
+    color: hsl(var(--background));
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 8px;
+}
+
+.footer-links a {
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-links a:hover {
+    color: hsl(var(--background));
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .tourist-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+    }
+
+    .modal-content {
+        width: 95%;
+    }
+}
+
+.footer-bottom {
+    border-top: 1px solid hsl(var(--background) / 0.2);
+    padding-top: 20px;
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: hsl(var(--background) / 0.6);
+}
+
+@media (max-width: 768px) {
+    .footer-grid {
+        text-align: center;
+    }
+
+    .footer-branding {
+        flex-direction: column;
+    }
+
+    /* Estilos do Menu Mobile */
+    .main-nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 280px;
+        height: 100vh;
+        background: hsl(var(--background));
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        padding-top: 80px;
+        z-index: 998;
+    }
+
+    .main-nav.is-open {
+        transform: translateX(0);
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .main-nav a {
+        font-size: 1.2rem;
+    }
+
+    .mobile-nav-toggle {
+        display: block;
+    }
+    .main-header .container {
+        justify-content: space-between; /* Volta a alinhar com espaço entre */
+    }
+
+    body.nav-open {
+        overflow: hidden; /* Impede o scroll do corpo da página quando o menu está aberto */
+    }
+
+.adventure-grid {
+    grid-template-columns: 1fr;
+}
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Animation delays for cards */
+.tourist-card:nth-child(1) { animation-delay: 0.1s; }
+.tourist-card:nth-child(2) { animation-delay: 0.2s; }
+.tourist-card:nth-child(3) { animation-delay: 0.3s; }
+.tourist-card:nth-child(4) { animation-delay: 0.4s; }
+.tourist-card:nth-child(5) { animation-delay: 0.5s; }
+
+    /* Estilos para a nova seção "Sua Aventura" */
+    .adventure-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+    }
+
+    .adventure-item {
+        background: linear-gradient(135deg, white, hsl(var(--muted) / 0.3));
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: var(--shadow-nature);
+        border: 2px solid transparent;
+        border-left: 5px solid hsl(var(--primary));
+        position: relative;
+        overflow: hidden;
+        transition: var(--transition);
+    }
+
+    .adventure-item::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100px;
+        height: 100px;
+        background: radial-gradient(circle, hsl(var(--primary) / 0.08), transparent 70%);
+        border-radius: 50%;
+        transform: translate(30px, -30px);
+    }
+
+    .adventure-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 60px -15px hsl(var(--primary) / 0.4);
+        border-left-color: hsl(var(--primary-glow));
+    }
+
+    .adventure-item h3 {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: hsl(var(--primary));
+        margin-bottom: 18px;
+        position: relative;
+        padding-bottom: 12px;
+    }
+
+    .adventure-item h3::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background: var(--gradient-forest);
+        border-radius: 2px;
+    }
+
+    .adventure-item .card-description {
+        text-align: justify;
+        line-height: 1.8;
+        color: hsl(var(--foreground) / 0.85);
+        position: relative;
+    }
+
+    /* Estilo para o card do vídeo ocupar a largura total */
+    .video-card-item {
+        grid-column: 1 / -1; /* Faz o item ocupar todas as colunas da grid */
+    }
+
+    /* Estilos para o container do vídeo responsivo */
+    .video-container {
+        position: relative;
+        padding-bottom: 56.25%; /* Proporção 16:9 (9 / 16 * 100) */
+        height: 0;
+        overflow: hidden;
+        max-width: 100%;
+        margin-top: 15px; /* Espaço entre o título e o vídeo */
+        border-radius: 16px;
+        background: #000;
+        box-shadow: var(--shadow-soft); /* Sombra mais sutil para combinar com o card */
+    }
+
+    .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    /* Estilos para o container do PDF */
+    .pdf-container {
+        width: 100%;
+        height: 800px; /* Altura padrão para desktop */
+        margin-top: 40px;
+        border-radius: 16px;
+        overflow: hidden; /* Garante que o iframe respeite o border-radius */
+        box-shadow: var(--shadow-nature);
+        border: 1px solid hsl(var(--muted));
+        background: hsl(var(--muted)); /* Fundo enquanto o PDF carrega */
+    }
+
+    .pdf-container iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+    /* Adiciona o cursor de "mão" para indicar que é arrastável */
+    .pdf-container.draggable iframe {
+        cursor: grabbing;
+    }
+
+    @media (max-width: 768px) {
+        .pdf-container {
+            height: 600px; /* Altura mais adequada para telas menores */
+        }
+    }

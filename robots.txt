@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://turismo.pimentabueno.ro.gov.br/sitemap.xml
