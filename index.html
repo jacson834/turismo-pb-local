@@ -8,6 +8,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="style.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/bandeira.ico" type="image/ico">
+
+    <!-- Pré-carrega a imagem principal para uma renderização mais rápida -->
+    <link rel="preload" as="image" href="assets/images/Pimenta-Bueno-Ro.jpg">
 </head>
 <body>
     <!-- Header com Navegação -->
@@ -89,8 +95,16 @@
 
                 <div class="tourist-card" data-point="praia">
                     <div class="card-image">
-                        <img src="assets/PRAINHA/prainha.jpg" alt="Praia fluvial no Rio Pimenta" class="card-img active" loading="lazy">
-                        <img src="assets/PRAINHA/prainha.jpg" alt="Praia fluvial no Rio Pimenta" class="card-img" loading="lazy">
+                        <picture>
+                            <source srcset="assets/PRAINHA/prainha.webp" type="image/webp">
+                            <source srcset="assets/PRAINHA/prainha.jpg" type="image/jpeg">
+                            <img src="assets/PRAINHA/prainha.jpg" alt="Praia fluvial no Rio Pimenta" class="card-img active" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/PRAINHA/prainha.webp" type="image/webp">
+                            <source srcset="assets/PRAINHA/prainha.jpg" type="image/jpeg">
+                            <img src="assets/PRAINHA/prainha.jpg" alt="Praia fluvial no Rio Pimenta" class="card-img" loading="lazy">
+                        </picture>
                         <button class="card-nav prev" aria-label="Foto anterior">&#10094;</button>
                         <button class="card-nav next" aria-label="Próxima foto">&#10095;</button>
                     </div>
@@ -110,16 +124,56 @@
                 </div>
                 <div class="tourist-card" data-point="fazenda">
                     <div class="card-image">
-                        <img src="assets/ENCONTRO-RIOS/encontro-rios1.jpg" alt="Encontro dos Rios" class="card-img active" loading="lazy">
-                        <img src="assets/ENCONTRO-RIOS/encontro-rios2.jpg" alt="Encontro dos Rios" class="card-img" loading="lazy">
-                        <img src="assets/ENCONTRO-RIOS/encontro-rios3.jpg" alt="Encontro dos Rios" class="card-img" loading="lazy">
-                        <img src="assets/ENCONTRO-RIOS/encontro-rios4.jpg" alt="Encontro dos Rios" class="card-img" loading="lazy">
-                        <img src="assets/ENCONTRO-RIOS/encontro-rios5.jpg" alt="Encontro dos Rios" class="card-img" loading="lazy">
-                        <img src="assets/ENCONTRO-RIOS/encontro-rios6.jpg" alt="Encontro dos Rios" class="card-img" loading="lazy">
-                        <img src="assets/ENCONTRO-RIOS/encontro-rios7.jpg" alt="Encontro dos Rios" class="card-img" loading="lazy">
-                        <img src="assets/ENCONTRO-RIOS/encontro-rios8.jpg" alt="Encontro dos Rios" class="card-img" loading="lazy">
-                        <img src="assets/ENCONTRO-RIOS/encontro-rios9.jpg" alt="Encontro dos Rios" class="card-img" loading="lazy">
-                        <img src="assets/ENCONTRO-RIOS/encontro-rios10.jpg" alt="Encontro dos Rios" class="card-img" loading="lazy">
+                        <picture>
+                            <source srcset="assets/ENCONTRO-RIOS/encontro-rios1.webp" type="image/webp">
+                            <source srcset="assets/ENCONTRO-RIOS/encontro-rios1.jpg" type="image/jpeg">
+                            <img src="assets/ENCONTRO-RIOS/encontro-rios1.jpg" alt="Encontro dos Rios" class="card-img active" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ENCONTRO-RIOS/encontro-rios2.webp" type="image/webp">
+                            <source srcset="assets/ENCONTRO-RIOS/encontro-rios2.jpg" type="image/jpeg">
+                            <img src="assets/ENCONTRO-RIOS/encontro-rios2.jpg" alt="Encontro dos Rios" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ENCONTRO-RIOS/encontro-rios3.webp" type="image/webp">
+                            <source srcset="assets/ENCONTRO-RIOS/encontro-rios3.jpg" type="image/jpeg">
+                            <img src="assets/ENCONTRO-RIOS/encontro-rios3.jpg" alt="Encontro dos Rios" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ENCONTRO-RIOS/encontro-rios4.webp" type="image/webp">
+                            <source srcset="assets/ENCONTRO-RIOS/encontro-rios4.jpg" type="image/jpeg">
+                            <img src="assets/ENCONTRO-RIOS/encontro-rios4.jpg" alt="Encontro dos Rios" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ENCONTRO-RIOS/encontro-rios5.webp" type="image/webp">
+                            <source srcset="assets/ENCONTRO-RIOS/encontro-rios5.jpg" type="image/jpeg">
+                            <img src="assets/ENCONTRO-RIOS/encontro-rios5.jpg" alt="Encontro dos Rios" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ENCONTRO-RIOS/encontro-rios6.webp" type="image/webp">
+                            <source srcset="assets/ENCONTRO-RIOS/encontro-rios6.jpg" type="image/jpeg">
+                            <img src="assets/ENCONTRO-RIOS/encontro-rios6.jpg" alt="Encontro dos Rios" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ENCONTRO-RIOS/encontro-rios7.webp" type="image/webp">
+                            <source srcset="assets/ENCONTRO-RIOS/encontro-rios7.jpg" type="image/jpeg">
+                            <img src="assets/ENCONTRO-RIOS/encontro-rios7.jpg" alt="Encontro dos Rios" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ENCONTRO-RIOS/encontro-rios8.webp" type="image/webp">
+                            <source srcset="assets/ENCONTRO-RIOS/encontro-rios8.jpg" type="image/jpeg">
+                            <img src="assets/ENCONTRO-RIOS/encontro-rios8.jpg" alt="Encontro dos Rios" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ENCONTRO-RIOS/encontro-rios9.webp" type="image/webp">
+                            <source srcset="assets/ENCONTRO-RIOS/encontro-rios9.jpg" type="image/jpeg">
+                            <img src="assets/ENCONTRO-RIOS/encontro-rios9.jpg" alt="Encontro dos Rios" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ENCONTRO-RIOS/encontro-rios10.webp" type="image/webp">
+                            <source srcset="assets/ENCONTRO-RIOS/encontro-rios10.jpg" type="image/jpeg">
+                            <img src="assets/ENCONTRO-RIOS/encontro-rios10.jpg" alt="Encontro dos Rios" class="card-img" loading="lazy">
+                        </picture>
                         <button class="card-nav prev" aria-label="Foto anterior">&#10094;</button>
                         <button class="card-nav next" aria-label="Próxima foto">&#10095;</button>
                     </div>
@@ -138,47 +192,211 @@
 
                  <div class="tourist-card" data-point="agua">
                     <div class="card-image">
-                        <img src="assets/ARTE-NATIVA/arte-nativa1.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img active" loading="lazy">
-                        <img src="assets/ARTE-NATIVA/arte-nativa2.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
-                        <img src="assets/ARTE-NATIVA/arte-nativa3.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
-                        <img src="assets/ARTE-NATIVA/arte-nativa4.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
-                        <img src="assets/ARTE-NATIVA/arte-nativa5.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
-                        <img src="assets/ARTE-NATIVA/arte-nativa6.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
-                        <img src="assets/ARTE-NATIVA/arte-nativa7.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
-                        <img src="assets/ARTE-NATIVA/arte-nativa8.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
-                        <img src="assets/ARTE-NATIVA/arte-nativa9.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
-                        <img src="assets/ARTE-NATIVA/arte-nativa10.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
-                        <img src="assets/ARTE-NATIVA/arte-nativa11.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
-                        <img src="assets/ARTE-NATIVA/arte-nativa12.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
-                        <img src="assets/ARTE-NATIVA/arte-nativa13.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
-                        <img src="assets/ARTE-NATIVA/arte-nativa14.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
-                        <img src="assets/ARTE-NATIVA/arte-nativa15.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
-                        <img src="assets/ARTE-NATIVA/arte-nativa16.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
-                        <img src="assets/ARTE-NATIVA/arte-nativa17.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
-                        <img src="assets/ARTE-NATIVA/arte-nativa18.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
-                        <img src="assets/ARTE-NATIVA/arte-nativa19.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
-                        <img src="assets/ARTE-NATIVA/arte-nativa20.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
-                        <img src="assets/ARTE-NATIVA/arte-nativa21.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
-                        <img src="assets/ARTE-NATIVA/arte-nativa22.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
-                        <img src="assets/ARTE-NATIVA/arte-nativa23.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
-                        <img src="assets/ARTE-NATIVA/arte-nativa24.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
-                        <img src="assets/ARTE-NATIVA/arte-nativa25.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
-                        <img src="assets/ARTE-NATIVA/arte-nativa26.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
-                        <img src="assets/ARTE-NATIVA/arte-nativa27.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
-                        <img src="assets/ARTE-NATIVA/arte-nativa28.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
-                        <img src="assets/ARTE-NATIVA/arte-nativa29.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
-                        <img src="assets/ARTE-NATIVA/arte-nativa30.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
-                        <img src="assets/ARTE-NATIVA/arte-nativa31.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
-                        <img src="assets/ARTE-NATIVA/arte-nativa32.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
-                        <img src="assets/ARTE-NATIVA/arte-nativa33.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
-                        <img src="assets/ARTE-NATIVA/arte-nativa34.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
-                        <img src="assets/ARTE-NATIVA/arte-nativa35.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
-                        <img src="assets/ARTE-NATIVA/arte-nativa36.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
-                        <img src="assets/ARTE-NATIVA/arte-nativa37.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
-                        <img src="assets/ARTE-NATIVA/arte-nativa38.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
-                        <img src="assets/ARTE-NATIVA/arte-nativa39.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
-                        <img src="assets/ARTE-NATIVA/arte-nativa40.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
-                        <img src="assets/ARTE-NATIVA/arte-nativa41.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
+                        <picture>
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa1.webp" type="image/webp">
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa1.jpg" type="image/jpeg">
+                            <img src="assets/ARTE-NATIVA/arte-nativa1.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img active" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa2.webp" type="image/webp">
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa2.jpg" type="image/jpeg">
+                            <img src="assets/ARTE-NATIVA/arte-nativa2.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa3.webp" type="image/webp">
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa3.jpg" type="image/jpeg">
+                            <img src="assets/ARTE-NATIVA/arte-nativa3.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa4.webp" type="image/webp">
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa4.jpg" type="image/jpeg">
+                            <img src="assets/ARTE-NATIVA/arte-nativa4.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa5.webp" type="image/webp">
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa5.jpg" type="image/jpeg">
+                            <img src="assets/ARTE-NATIVA/arte-nativa5.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa6.webp" type="image/webp">
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa6.jpg" type="image/jpeg">
+                            <img src="assets/ARTE-NATIVA/arte-nativa6.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa7.webp" type="image/webp">
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa7.jpg" type="image/jpeg">
+                            <img src="assets/ARTE-NATIVA/arte-nativa7.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa8.webp" type="image/webp">
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa8.jpg" type="image/jpeg">
+                            <img src="assets/ARTE-NATIVA/arte-nativa8.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa9.webp" type="image/webp">
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa9.jpg" type="image/jpeg">
+                            <img src="assets/ARTE-NATIVA/arte-nativa9.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa10.webp" type="image/webp">
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa10.jpg" type="image/jpeg">
+                            <img src="assets/ARTE-NATIVA/arte-nativa10.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa11.webp" type="image/webp">
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa11.jpg" type="image/jpeg">
+                            <img src="assets/ARTE-NATIVA/arte-nativa11.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa12.webp" type="image/webp">
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa12.jpg" type="image/jpeg">
+                            <img src="assets/ARTE-NATIVA/arte-nativa12.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa13.webp" type="image/webp">
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa13.jpg" type="image/jpeg">
+                            <img src="assets/ARTE-NATIVA/arte-nativa13.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa14.webp" type="image/webp">
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa14.jpg" type="image/jpeg">
+                            <img src="assets/ARTE-NATIVA/arte-nativa14.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa15.webp" type="image/webp">
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa15.jpg" type="image/jpeg">
+                            <img src="assets/ARTE-NATIVA/arte-nativa15.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa16.webp" type="image/webp">
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa16.jpg" type="image/jpeg">
+                            <img src="assets/ARTE-NATIVA/arte-nativa16.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa17.webp" type="image/webp">
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa17.jpg" type="image/jpeg">
+                            <img src="assets/ARTE-NATIVA/arte-nativa17.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa18.webp" type="image/webp">
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa18.jpg" type="image/jpeg">
+                            <img src="assets/ARTE-NATIVA/arte-nativa18.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa19.webp" type="image/webp">
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa19.jpg" type="image/jpeg">
+                            <img src="assets/ARTE-NATIVA/arte-nativa19.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa20.webp" type="image/webp">
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa20.jpg" type="image/jpeg">
+                            <img src="assets/ARTE-NATIVA/arte-nativa20.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa21.webp" type="image/webp">
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa21.jpg" type="image/jpeg">
+                            <img src="assets/ARTE-NATIVA/arte-nativa21.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa22.webp" type="image/webp">
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa22.jpg" type="image/jpeg">
+                            <img src="assets/ARTE-NATIVA/arte-nativa22.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa23.webp" type="image/webp">
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa23.jpg" type="image/jpeg">
+                            <img src="assets/ARTE-NATIVA/arte-nativa23.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa24.webp" type="image/webp">
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa24.jpg" type="image/jpeg">
+                            <img src="assets/ARTE-NATIVA/arte-nativa24.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa25.webp" type="image/webp">
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa25.jpg" type="image/jpeg">
+                            <img src="assets/ARTE-NATIVA/arte-nativa25.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa26.webp" type="image/webp">
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa26.jpg" type="image/jpeg">
+                            <img src="assets/ARTE-NATIVA/arte-nativa26.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa27.webp" type="image/webp">
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa27.jpg" type="image/jpeg">
+                            <img src="assets/ARTE-NATIVA/arte-nativa27.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa28.webp" type="image/webp">
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa28.jpg" type="image/jpeg">
+                            <img src="assets/ARTE-NATIVA/arte-nativa28.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa29.webp" type="image/webp">
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa29.jpg" type="image/jpeg">
+                            <img src="assets/ARTE-NATIVA/arte-nativa29.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa30.webp" type="image/webp">
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa30.jpg" type="image/jpeg">
+                            <img src="assets/ARTE-NATIVA/arte-nativa30.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa31.webp" type="image/webp">
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa31.jpg" type="image/jpeg">
+                            <img src="assets/ARTE-NATIVA/arte-nativa31.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa32.webp" type="image/webp">
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa32.jpg" type="image/jpeg">
+                            <img src="assets/ARTE-NATIVA/arte-nativa32.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa33.webp" type="image/webp">
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa33.jpg" type="image/jpeg">
+                            <img src="assets/ARTE-NATIVA/arte-nativa33.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa34.webp" type="image/webp">
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa34.jpg" type="image/jpeg">
+                            <img src="assets/ARTE-NATIVA/arte-nativa34.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa35.webp" type="image/webp">
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa35.jpg" type="image/jpeg">
+                            <img src="assets/ARTE-NATIVA/arte-nativa35.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa36.webp" type="image/webp">
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa36.jpg" type="image/jpeg">
+                            <img src="assets/ARTE-NATIVA/arte-nativa36.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa37.webp" type="image/webp">
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa37.jpg" type="image/jpeg">
+                            <img src="assets/ARTE-NATIVA/arte-nativa37.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa38.webp" type="image/webp">
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa38.jpg" type="image/jpeg">
+                            <img src="assets/ARTE-NATIVA/arte-nativa38.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa39.webp" type="image/webp">
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa39.jpg" type="image/jpeg">
+                            <img src="assets/ARTE-NATIVA/arte-nativa39.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa40.webp" type="image/webp">
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa40.jpg" type="image/jpeg">
+                            <img src="assets/ARTE-NATIVA/arte-nativa40.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa41.webp" type="image/webp">
+                            <source srcset="assets/ARTE-NATIVA/arte-nativa41.jpg" type="image/jpeg">
+                            <img src="assets/ARTE-NATIVA/arte-nativa41.jpg" alt="Refúgio Ecológico Arte Nativa" class="card-img" loading="lazy">
+                        </picture>
                         <button class="card-nav prev" aria-label="Foto anterior">&#10094;</button>
                         <button class="card-nav next" aria-label="Próxima foto">&#10095;</button>
                         <!-- Vídeos adicionados -->
@@ -202,40 +420,176 @@ O local se caracteriza por um relevo mesclado (plano e acidentado), que torna se
 
                 <div class="tourist-card" data-point="vale-apertado">
                     <div class="card-image">
-                        <img src="assets/VALE-DO-APERTADO/apertado1.jpg" alt="Cânion no Vale do Apertado" class="card-img active" loading="lazy">
-                        <img src="assets/VALE-DO-APERTADO/apertado2.jpg" alt="Cachoeira no Vale do Apertado" class="card-img" loading="lazy">
-                        <img src="assets/VALE-DO-APERTADO/apertado3.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
-                        <img src="assets/VALE-DO-APERTADO/apertado4.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
-                        <img src="assets/VALE-DO-APERTADO/apertado5.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
-                        <img src="assets/VALE-DO-APERTADO/apertado6.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
-                        <img src="assets/VALE-DO-APERTADO/apertado7.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
-                        <img src="assets/VALE-DO-APERTADO/apertado8.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
-                        <img src="assets/VALE-DO-APERTADO/apertado9.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
-                        <img src="assets/VALE-DO-APERTADO/apertado10.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
-                        <img src="assets/VALE-DO-APERTADO/apertado11.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
-                        <img src="assets/VALE-DO-APERTADO/apertado12.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
-                        <img src="assets/VALE-DO-APERTADO/apertado13.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
-                        <img src="assets/VALE-DO-APERTADO/apertado14.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
-                        <img src="assets/VALE-DO-APERTADO/apertado15.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
-                        <img src="assets/VALE-DO-APERTADO/apertado16.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
-                        <img src="assets/VALE-DO-APERTADO/apertado17.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
-                        <img src="assets/VALE-DO-APERTADO/apertado18.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
-                        <img src="assets/VALE-DO-APERTADO/apertado19.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
-                        <img src="assets/VALE-DO-APERTADO/apertado20.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
-                        <img src="assets/VALE-DO-APERTADO/apertado21.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
-                        <img src="assets/VALE-DO-APERTADO/apertado22.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
-                        <img src="assets/VALE-DO-APERTADO/apertado23.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
-                        <img src="assets/VALE-DO-APERTADO/apertado24.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
-                        <img src="assets/VALE-DO-APERTADO/apertado25.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
-                        <img src="assets/VALE-DO-APERTADO/apertado26.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
-                        <img src="assets/VALE-DO-APERTADO/apertado27.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
-                        <img src="assets/VALE-DO-APERTADO/apertado28.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
-                        <img src="assets/VALE-DO-APERTADO/apertado29.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
-                        <img src="assets/VALE-DO-APERTADO/apertado30.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
-                        <img src="assets/VALE-DO-APERTADO/apertado31.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
-                        <img src="assets/VALE-DO-APERTADO/apertado32.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
-                        <img src="assets/VALE-DO-APERTADO/apertado33.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
-                        <img src="assets/VALE-DO-APERTADO/apertado34.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
+                        <picture>
+                            <source srcset="assets/VALE-DO-APERTADO/apertado1.webp" type="image/webp">
+                            <source srcset="assets/VALE-DO-APERTADO/apertado1.jpg" type="image/jpeg">
+                            <img src="assets/VALE-DO-APERTADO/apertado1.jpg" alt="Cânion no Vale do Apertado" class="card-img active" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/VALE-DO-APERTADO/apertado2.webp" type="image/webp">
+                            <source srcset="assets/VALE-DO-APERTADO/apertado2.jpg" type="image/jpeg">
+                            <img src="assets/VALE-DO-APERTADO/apertado2.jpg" alt="Cachoeira no Vale do Apertado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/VALE-DO-APERTADO/apertado3.webp" type="image/webp">
+                            <source srcset="assets/VALE-DO-APERTADO/apertado3.jpg" type="image/jpeg">
+                            <img src="assets/VALE-DO-APERTADO/apertado3.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/VALE-DO-APERTADO/apertado4.webp" type="image/webp">
+                            <source srcset="assets/VALE-DO-APERTADO/apertado4.jpg" type="image/jpeg">
+                            <img src="assets/VALE-DO-APERTADO/apertado4.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/VALE-DO-APERTADO/apertado5.webp" type="image/webp">
+                            <source srcset="assets/VALE-DO-APERTADO/apertado5.jpg" type="image/jpeg">
+                            <img src="assets/VALE-DO-APERTADO/apertado5.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/VALE-DO-APERTADO/apertado6.webp" type="image/webp">
+                            <source srcset="assets/VALE-DO-APERTADO/apertado6.jpg" type="image/jpeg">
+                            <img src="assets/VALE-DO-APERTADO/apertado6.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/VALE-DO-APERTADO/apertado7.webp" type="image/webp">
+                            <source srcset="assets/VALE-DO-APERTADO/apertado7.jpg" type="image/jpeg">
+                            <img src="assets/VALE-DO-APERTADO/apertado7.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/VALE-DO-APERTADO/apertado8.webp" type="image/webp">
+                            <source srcset="assets/VALE-DO-APERTADO/apertado8.jpg" type="image/jpeg">
+                            <img src="assets/VALE-DO-APERTADO/apertado8.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/VALE-DO-APERTADO/apertado9.webp" type="image/webp">
+                            <source srcset="assets/VALE-DO-APERTADO/apertado9.jpg" type="image/jpeg">
+                            <img src="assets/VALE-DO-APERTADO/apertado9.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/VALE-DO-APERTADO/apertado10.webp" type="image/webp">
+                            <source srcset="assets/VALE-DO-APERTADO/apertado10.jpg" type="image/jpeg">
+                            <img src="assets/VALE-DO-APERTADO/apertado10.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/VALE-DO-APERTADO/apertado11.webp" type="image/webp">
+                            <source srcset="assets/VALE-DO-APERTADO/apertado11.jpg" type="image/jpeg">
+                            <img src="assets/VALE-DO-APERTADO/apertado11.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/VALE-DO-APERTADO/apertado12.webp" type="image/webp">
+                            <source srcset="assets/VALE-DO-APERTADO/apertado12.jpg" type="image/jpeg">
+                            <img src="assets/VALE-DO-APERTADO/apertado12.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/VALE-DO-APERTADO/apertado13.webp" type="image/webp">
+                            <source srcset="assets/VALE-DO-APERTADO/apertado13.jpg" type="image/jpeg">
+                            <img src="assets/VALE-DO-APERTADO/apertado13.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/VALE-DO-APERTADO/apertado14.webp" type="image/webp">
+                            <source srcset="assets/VALE-DO-APERTADO/apertado14.jpg" type="image/jpeg">
+                            <img src="assets/VALE-DO-APERTADO/apertado14.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/VALE-DO-APERTADO/apertado15.webp" type="image/webp">
+                            <source srcset="assets/VALE-DO-APERTADO/apertado15.jpg" type="image/jpeg">
+                            <img src="assets/VALE-DO-APERTADO/apertado15.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/VALE-DO-APERTADO/apertado16.webp" type="image/webp">
+                            <source srcset="assets/VALE-DO-APERTADO/apertado16.jpg" type="image/jpeg">
+                            <img src="assets/VALE-DO-APERTADO/apertado16.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/VALE-DO-APERTADO/apertado17.webp" type="image/webp">
+                            <source srcset="assets/VALE-DO-APERTADO/apertado17.jpg" type="image/jpeg">
+                            <img src="assets/VALE-DO-APERTADO/apertado17.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/VALE-DO-APERTADO/apertado18.webp" type="image/webp">
+                            <source srcset="assets/VALE-DO-APERTADO/apertado18.jpg" type="image/jpeg">
+                            <img src="assets/VALE-DO-APERTADO/apertado18.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/VALE-DO-APERTADO/apertado19.webp" type="image/webp">
+                            <source srcset="assets/VALE-DO-APERTADO/apertado19.jpg" type="image/jpeg">
+                            <img src="assets/VALE-DO-APERTADO/apertado19.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/VALE-DO-APERTADO/apertado20.webp" type="image/webp">
+                            <source srcset="assets/VALE-DO-APERTADO/apertado20.jpg" type="image/jpeg">
+                            <img src="assets/VALE-DO-APERTADO/apertado20.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/VALE-DO-APERTADO/apertado21.webp" type="image/webp">
+                            <source srcset="assets/VALE-DO-APERTADO/apertado21.jpg" type="image/jpeg">
+                            <img src="assets/VALE-DO-APERTADO/apertado21.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/VALE-DO-APERTADO/apertado22.webp" type="image/webp">
+                            <source srcset="assets/VALE-DO-APERTADO/apertado22.jpg" type="image/jpeg">
+                            <img src="assets/VALE-DO-APERTADO/apertado22.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/VALE-DO-APERTADO/apertado23.webp" type="image/webp">
+                            <source srcset="assets/VALE-DO-APERTADO/apertado23.jpg" type="image/jpeg">
+                            <img src="assets/VALE-DO-APERTADO/apertado23.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/VALE-DO-APERTADO/apertado24.webp" type="image/webp">
+                            <source srcset="assets/VALE-DO-APERTADO/apertado24.jpg" type="image/jpeg">
+                            <img src="assets/VALE-DO-APERTADO/apertado24.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/VALE-DO-APERTADO/apertado25.webp" type="image/webp">
+                            <source srcset="assets/VALE-DO-APERTADO/apertado25.jpg" type="image/jpeg">
+                            <img src="assets/VALE-DO-APERTADO/apertado25.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/VALE-DO-APERTADO/apertado26.webp" type="image/webp">
+                            <source srcset="assets/VALE-DO-APERTADO/apertado26.jpg" type="image/jpeg">
+                            <img src="assets/VALE-DO-APERTADO/apertado26.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/VALE-DO-APERTADO/apertado27.webp" type="image/webp">
+                            <source srcset="assets/VALE-DO-APERTADO/apertado27.jpg" type="image/jpeg">
+                            <img src="assets/VALE-DO-APERTADO/apertado27.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/VALE-DO-APERTADO/apertado28.webp" type="image/webp">
+                            <source srcset="assets/VALE-DO-APERTADO/apertado28.jpg" type="image/jpeg">
+                            <img src="assets/VALE-DO-APERTADO/apertado28.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/VALE-DO-APERTADO/apertado29.webp" type="image/webp">
+                            <source srcset="assets/VALE-DO-APERTADO/apertado29.jpg" type="image/jpeg">
+                            <img src="assets/VALE-DO-APERTADO/apertado29.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/VALE-DO-APERTADO/apertado30.webp" type="image/webp">
+                            <source srcset="assets/VALE-DO-APERTADO/apertado30.jpg" type="image/jpeg">
+                            <img src="assets/VALE-DO-APERTADO/apertado30.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/VALE-DO-APERTADO/apertado31.webp" type="image/webp">
+                            <source srcset="assets/VALE-DO-APERTADO/apertado31.jpg" type="image/jpeg">
+                            <img src="assets/VALE-DO-APERTADO/apertado31.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/VALE-DO-APERTADO/apertado32.webp" type="image/webp">
+                            <source srcset="assets/VALE-DO-APERTADO/apertado32.jpg" type="image/jpeg">
+                            <img src="assets/VALE-DO-APERTADO/apertado32.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/VALE-DO-APERTADO/apertado33.webp" type="image/webp">
+                            <source srcset="assets/VALE-DO-APERTADO/apertado33.jpg" type="image/jpeg">
+                            <img src="assets/VALE-DO-APERTADO/apertado33.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/VALE-DO-APERTADO/apertado34.webp" type="image/webp">
+                            <source srcset="assets/VALE-DO-APERTADO/apertado34.jpg" type="image/jpeg">
+                            <img src="assets/VALE-DO-APERTADO/apertado34.jpg" alt="Paisagem do Vale do Apertado" class="card-img" loading="lazy">
+                        </picture>
                         <video data-src="assets/VALE-DO-APERTADO/vale-do-apertado.mp4" class="card-img" muted loop playsinline poster="assets/VALE-DO-APERTADO/apertado1.jpg" data-alt="Vídeo do Vale do Apertado" preload="none"></video>
                         <video data-src="assets/VALE-DO-APERTADO/vale-do-apertado2.mp4" class="card-img" muted loop playsinline poster="assets/VALE-DO-APERTADO/apertado2.jpg" data-alt="Vídeo do Vale do Apertado" preload="none"></video>
                         <video data-src="assets/VALE-DO-APERTADO/vale-do-apertado3.mp4" class="card-img" muted loop playsinline poster="assets/VALE-DO-APERTADO/apertado3.jpg" data-alt="Vídeo do Vale do Apertado" preload="none"></video>
@@ -275,33 +629,141 @@ O local se caracteriza por um relevo mesclado (plano e acidentado), que torna se
                 -->
                 <div class="tourist-card" data-point="roque">
                     <div class="card-image">
-                        <img src="assets/ALAGADO/alagado1.jpg" alt="Alagado" class="card-img active" loading="lazy">
-                        <img src="assets/ALAGADO/alagado2.jpg" alt="Alagado" class="card-img" loading="lazy">
-                        <img src="assets/ALAGADO/alagado3.jpg" alt="Alagado" class="card-img" loading="lazy">
-                        <img src="assets/ALAGADO/alagado4.jpg" alt="Alagado" class="card-img" loading="lazy">
-                        <img src="assets/ALAGADO/alagado5.jpg" alt="Alagado" class="card-img" loading="lazy">
-                        <img src="assets/ALAGADO/alagado6.jpg" alt="Alagado" class="card-img" loading="lazy">
-                        <img src="assets/ALAGADO/alagado7.jpg" alt="Alagado" class="card-img" loading="lazy">
-                        <img src="assets/ALAGADO/alagado8.jpg" alt="Alagado" class="card-img" loading="lazy">
-                        <img src="assets/ALAGADO/alagado9.jpg" alt="Alagado" class="card-img" loading="lazy">
-                        <img src="assets/ALAGADO/alagado10.jpg" alt="Alagado" class="card-img" loading="lazy">
-                        <img src="assets/ALAGADO/alagado11.jpg" alt="Alagado" class="card-img" loading="lazy">
-                        <img src="assets/ALAGADO/alagado12.jpg" alt="Alagado" class="card-img" loading="lazy">
-                        <img src="assets/ALAGADO/alagado13.jpg" alt="Alagado" class="card-img" loading="lazy">
-                        <img src="assets/ALAGADO/alagado14.jpg" alt="Alagado" class="card-img" loading="lazy">
-                        <img src="assets/ALAGADO/alagado15.jpg" alt="Alagado" class="card-img" loading="lazy">
-                        <img src="assets/ALAGADO/alagado16.jpg" alt="Alagado" class="card-img" loading="lazy">
-                        <img src="assets/ALAGADO/alagado17.jpg" alt="Alagado" class="card-img" loading="lazy">
-                        <img src="assets/ALAGADO/alagado18.jpg" alt="Alagado" class="card-img" loading="lazy">
-                        <img src="assets/ALAGADO/alagado19.jpg" alt="Alagado" class="card-img" loading="lazy">
-                        <img src="assets/ALAGADO/alagado20.jpg" alt="Alagado" class="card-img" loading="lazy">
-                        <img src="assets/ALAGADO/alagado21.jpg" alt="Alagado" class="card-img" loading="lazy">
-                        <img src="assets/ALAGADO/alagado22.jpg" alt="Alagado" class="card-img" loading="lazy">
-                        <img src="assets/ALAGADO/alagado23.jpg" alt="Alagado" class="card-img" loading="lazy">
-                        <img src="assets/ALAGADO/alagado24.jpg" alt="Alagado" class="card-img" loading="lazy">
-                        <img src="assets/ALAGADO/alagado25.jpg" alt="Alagado" class="card-img" loading="lazy">
-                        <img src="assets/ALAGADO/alagado26.jpg" alt="Alagado" class="card-img" loading="lazy">
-                        <img src="assets/ALAGADO/alagado27.jpg" alt="Alagado" class="card-img" loading="lazy">
+                        <picture>
+                            <source srcset="assets/ALAGADO/alagado1.webp" type="image/webp">
+                            <source srcset="assets/ALAGADO/alagado1.jpg" type="image/jpeg">
+                            <img src="assets/ALAGADO/alagado1.jpg" alt="Alagado" class="card-img active" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ALAGADO/alagado2.webp" type="image/webp">
+                            <source srcset="assets/ALAGADO/alagado2.jpg" type="image/jpeg">
+                            <img src="assets/ALAGADO/alagado2.jpg" alt="Alagado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ALAGADO/alagado3.webp" type="image/webp">
+                            <source srcset="assets/ALAGADO/alagado3.jpg" type="image/jpeg">
+                            <img src="assets/ALAGADO/alagado3.jpg" alt="Alagado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ALAGADO/alagado4.webp" type="image/webp">
+                            <source srcset="assets/ALAGADO/alagado4.jpg" type="image/jpeg">
+                            <img src="assets/ALAGADO/alagado4.jpg" alt="Alagado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ALAGADO/alagado5.webp" type="image/webp">
+                            <source srcset="assets/ALAGADO/alagado5.jpg" type="image/jpeg">
+                            <img src="assets/ALAGADO/alagado5.jpg" alt="Alagado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ALAGADO/alagado6.webp" type="image/webp">
+                            <source srcset="assets/ALAGADO/alagado6.jpg" type="image/jpeg">
+                            <img src="assets/ALAGADO/alagado6.jpg" alt="Alagado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ALAGADO/alagado7.webp" type="image/webp">
+                            <source srcset="assets/ALAGADO/alagado7.jpg" type="image/jpeg">
+                            <img src="assets/ALAGADO/alagado7.jpg" alt="Alagado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ALAGADO/alagado8.webp" type="image/webp">
+                            <source srcset="assets/ALAGADO/alagado8.jpg" type="image/jpeg">
+                            <img src="assets/ALAGADO/alagado8.jpg" alt="Alagado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ALAGADO/alagado9.webp" type="image/webp">
+                            <source srcset="assets/ALAGADO/alagado9.jpg" type="image/jpeg">
+                            <img src="assets/ALAGADO/alagado9.jpg" alt="Alagado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ALAGADO/alagado10.webp" type="image/webp">
+                            <source srcset="assets/ALAGADO/alagado10.jpg" type="image/jpeg">
+                            <img src="assets/ALAGADO/alagado10.jpg" alt="Alagado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ALAGADO/alagado11.webp" type="image/webp">
+                            <source srcset="assets/ALAGADO/alagado11.jpg" type="image/jpeg">
+                            <img src="assets/ALAGADO/alagado11.jpg" alt="Alagado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ALAGADO/alagado12.webp" type="image/webp">
+                            <source srcset="assets/ALAGADO/alagado12.jpg" type="image/jpeg">
+                            <img src="assets/ALAGADO/alagado12.jpg" alt="Alagado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ALAGADO/alagado13.webp" type="image/webp">
+                            <source srcset="assets/ALAGADO/alagado13.jpg" type="image/jpeg">
+                            <img src="assets/ALAGADO/alagado13.jpg" alt="Alagado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ALAGADO/alagado14.webp" type="image/webp">
+                            <source srcset="assets/ALAGADO/alagado14.jpg" type="image/jpeg">
+                            <img src="assets/ALAGADO/alagado14.jpg" alt="Alagado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ALAGADO/alagado15.webp" type="image/webp">
+                            <source srcset="assets/ALAGADO/alagado15.jpg" type="image/jpeg">
+                            <img src="assets/ALAGADO/alagado15.jpg" alt="Alagado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ALAGADO/alagado16.webp" type="image/webp">
+                            <source srcset="assets/ALAGADO/alagado16.jpg" type="image/jpeg">
+                            <img src="assets/ALAGADO/alagado16.jpg" alt="Alagado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ALAGADO/alagado17.webp" type="image/webp">
+                            <source srcset="assets/ALAGADO/alagado17.jpg" type="image/jpeg">
+                            <img src="assets/ALAGADO/alagado17.jpg" alt="Alagado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ALAGADO/alagado18.webp" type="image/webp">
+                            <source srcset="assets/ALAGADO/alagado18.jpg" type="image/jpeg">
+                            <img src="assets/ALAGADO/alagado18.jpg" alt="Alagado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ALAGADO/alagado19.webp" type="image/webp">
+                            <source srcset="assets/ALAGADO/alagado19.jpg" type="image/jpeg">
+                            <img src="assets/ALAGADO/alagado19.jpg" alt="Alagado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ALAGADO/alagado20.webp" type="image/webp">
+                            <source srcset="assets/ALAGADO/alagado20.jpg" type="image/jpeg">
+                            <img src="assets/ALAGADO/alagado20.jpg" alt="Alagado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ALAGADO/alagado21.webp" type="image/webp">
+                            <source srcset="assets/ALAGADO/alagado21.jpg" type="image/jpeg">
+                            <img src="assets/ALAGADO/alagado21.jpg" alt="Alagado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ALAGADO/alagado22.webp" type="image/webp">
+                            <source srcset="assets/ALAGADO/alagado22.jpg" type="image/jpeg">
+                            <img src="assets/ALAGADO/alagado22.jpg" alt="Alagado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ALAGADO/alagado23.webp" type="image/webp">
+                            <source srcset="assets/ALAGADO/alagado23.jpg" type="image/jpeg">
+                            <img src="assets/ALAGADO/alagado23.jpg" alt="Alagado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ALAGADO/alagado24.webp" type="image/webp">
+                            <source srcset="assets/ALAGADO/alagado24.jpg" type="image/jpeg">
+                            <img src="assets/ALAGADO/alagado24.jpg" alt="Alagado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ALAGADO/alagado25.webp" type="image/webp">
+                            <source srcset="assets/ALAGADO/alagado25.jpg" type="image/jpeg">
+                            <img src="assets/ALAGADO/alagado25.jpg" alt="Alagado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ALAGADO/alagado26.webp" type="image/webp">
+                            <source srcset="assets/ALAGADO/alagado26.jpg" type="image/jpeg">
+                            <img src="assets/ALAGADO/alagado26.jpg" alt="Alagado" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/ALAGADO/alagado27.webp" type="image/webp">
+                            <source srcset="assets/ALAGADO/alagado27.jpg" type="image/jpeg">
+                            <img src="assets/ALAGADO/alagado27.jpg" alt="Alagado" class="card-img" loading="lazy">
+                        </picture>
                         <button class="card-nav prev" aria-label="Foto anterior">&#10094;</button>
                         <button class="card-nav next" aria-label="Próxima foto">&#10095;</button>
                     </div>
@@ -319,27 +781,111 @@ O local se caracteriza por um relevo mesclado (plano e acidentado), que torna se
 
                 <div class="tourist-card" data-point="gaucho">
                     <div class="card-image">
-                        <img src="assets/amoroso/amoroso1.jpg" alt="Balneário do Amoroso" class="card-img active" loading="lazy">
-                        <img src="assets/amoroso/amoroso2.jpg" alt="Balneário do Amoroso" class="card-img" loading="lazy">
-                        <img src="assets/amoroso/amoroso3.jpg" alt="Balneário do Amoroso" class="card-img" loading="lazy">
-                        <img src="assets/amoroso/amoroso4.jpg" alt="Balneário do Amoroso" class="card-img" loading="lazy">
-                        <img src="assets/amoroso/amoroso5.jpg" alt="Balneário do Amoroso" class="card-img" loading="lazy">
-                        <img src="assets/amoroso/amoroso6.jpg" alt="Balneário do Amoroso" class="card-img" loading="lazy">
-                        <img src="assets/amoroso/amoroso7.jpg" alt="Balneário do Amoroso" class="card-img" loading="lazy">
-                        <img src="assets/amoroso/amoroso8.jpg" alt="Balneário do Amoroso" class="card-img" loading="lazy">
-                        <img src="assets/amoroso/amoroso9.jpg" alt="Balneário do Amoroso" class="card-img" loading="lazy">
-                        <img src="assets/amoroso/amoroso10.jpg" alt="Balneário do Amoroso" class="card-img" loading="lazy">
-                        <img src="assets/amoroso/amoroso11.jpg" alt="Balneário do Amoroso" class="card-img" loading="lazy">
-                        <img src="assets/amoroso/amoroso12.jpg" alt="Balneário do Amoroso" class="card-img" loading="lazy">
-                        <img src="assets/amoroso/amoroso13.jpg" alt="Balneário do Amoroso" class="card-img" loading="lazy">
-                        <img src="assets/amoroso/amoroso14.jpg" alt="Balneário do Amoroso" class="card-img" loading="lazy">
-                        <img src="assets/amoroso/amoroso15.jpg" alt="Balneário do Amoroso" class="card-img" loading="lazy">
-                        <img src="assets/amoroso/amoroso16.jpg" alt="Balneário do Amoroso" class="card-img" loading="lazy">
-                        <img src="assets/amoroso/amoroso17.jpg" alt="Balneário do Amoroso" class="card-img" loading="lazy">
-                        <img src="assets/amoroso/amoroso18.jpg" alt="Balneário do Amoroso" class="card-img" loading="lazy">
-                        <img src="assets/amoroso/amoroso19.jpg" alt="Balneário do Amoroso" class="card-img" loading="lazy">
-                        <img src="assets/amoroso/amoroso20.jpg" alt="Balneário do Amoroso" class="card-img" loading="lazy">
-                        <img src="assets/amoroso/amoroso21.jpg" alt="Balneário do Amoroso" class="card-img" loading="lazy">
+                        <picture>
+                            <source srcset="assets/amoroso/amoroso1.webp" type="image/webp">
+                            <source srcset="assets/amoroso/amoroso1.jpg" type="image/jpeg">
+                            <img src="assets/amoroso/amoroso1.jpg" alt="Balneário do Amoroso" class="card-img active" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/amoroso/amoroso2.webp" type="image/webp">
+                            <source srcset="assets/amoroso/amoroso2.jpg" type="image/jpeg">
+                            <img src="assets/amoroso/amoroso2.jpg" alt="Balneário do Amoroso" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/amoroso/amoroso3.webp" type="image/webp">
+                            <source srcset="assets/amoroso/amoroso3.jpg" type="image/jpeg">
+                            <img src="assets/amoroso/amoroso3.jpg" alt="Balneário do Amoroso" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/amoroso/amoroso4.webp" type="image/webp">
+                            <source srcset="assets/amoroso/amoroso4.jpg" type="image/jpeg">
+                            <img src="assets/amoroso/amoroso4.jpg" alt="Balneário do Amoroso" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/amoroso/amoroso5.webp" type="image/webp">
+                            <source srcset="assets/amoroso/amoroso5.jpg" type="image/jpeg">
+                            <img src="assets/amoroso/amoroso5.jpg" alt="Balneário do Amoroso" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/amoroso/amoroso6.webp" type="image/webp">
+                            <source srcset="assets/amoroso/amoroso6.jpg" type="image/jpeg">
+                            <img src="assets/amoroso/amoroso6.jpg" alt="Balneário do Amoroso" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/amoroso/amoroso7.webp" type="image/webp">
+                            <source srcset="assets/amoroso/amoroso7.jpg" type="image/jpeg">
+                            <img src="assets/amoroso/amoroso7.jpg" alt="Balneário do Amoroso" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/amoroso/amoroso8.webp" type="image/webp">
+                            <source srcset="assets/amoroso/amoroso8.jpg" type="image/jpeg">
+                            <img src="assets/amoroso/amoroso8.jpg" alt="Balneário do Amoroso" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/amoroso/amoroso9.webp" type="image/webp">
+                            <source srcset="assets/amoroso/amoroso9.jpg" type="image/jpeg">
+                            <img src="assets/amoroso/amoroso9.jpg" alt="Balneário do Amoroso" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/amoroso/amoroso10.webp" type="image/webp">
+                            <source srcset="assets/amoroso/amoroso10.jpg" type="image/jpeg">
+                            <img src="assets/amoroso/amoroso10.jpg" alt="Balneário do Amoroso" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/amoroso/amoroso11.webp" type="image/webp">
+                            <source srcset="assets/amoroso/amoroso11.jpg" type="image/jpeg">
+                            <img src="assets/amoroso/amoroso11.jpg" alt="Balneário do Amoroso" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/amoroso/amoroso12.webp" type="image/webp">
+                            <source srcset="assets/amoroso/amoroso12.jpg" type="image/jpeg">
+                            <img src="assets/amoroso/amoroso12.jpg" alt="Balneário do Amoroso" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/amoroso/amoroso13.webp" type="image/webp">
+                            <source srcset="assets/amoroso/amoroso13.jpg" type="image/jpeg">
+                            <img src="assets/amoroso/amoroso13.jpg" alt="Balneário do Amoroso" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/amoroso/amoroso14.webp" type="image/webp">
+                            <source srcset="assets/amoroso/amoroso14.jpg" type="image/jpeg">
+                            <img src="assets/amoroso/amoroso14.jpg" alt="Balneário do Amoroso" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/amoroso/amoroso15.webp" type="image/webp">
+                            <source srcset="assets/amoroso/amoroso15.jpg" type="image/jpeg">
+                            <img src="assets/amoroso/amoroso15.jpg" alt="Balneário do Amoroso" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/amoroso/amoroso16.webp" type="image/webp">
+                            <source srcset="assets/amoroso/amoroso16.jpg" type="image/jpeg">
+                            <img src="assets/amoroso/amoroso16.jpg" alt="Balneário do Amoroso" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/amoroso/amoroso17.webp" type="image/webp">
+                            <source srcset="assets/amoroso/amoroso17.jpg" type="image/jpeg">
+                            <img src="assets/amoroso/amoroso17.jpg" alt="Balneário do Amoroso" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/amoroso/amoroso18.webp" type="image/webp">
+                            <source srcset="assets/amoroso/amoroso18.jpg" type="image/jpeg">
+                            <img src="assets/amoroso/amoroso18.jpg" alt="Balneário do Amoroso" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/amoroso/amoroso19.webp" type="image/webp">
+                            <source srcset="assets/amoroso/amoroso19.jpg" type="image/jpeg">
+                            <img src="assets/amoroso/amoroso19.jpg" alt="Balneário do Amoroso" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/amoroso/amoroso20.webp" type="image/webp">
+                            <source srcset="assets/amoroso/amoroso20.jpg" type="image/jpeg">
+                            <img src="assets/amoroso/amoroso20.jpg" alt="Balneário do Amoroso" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/amoroso/amoroso21.webp" type="image/webp">
+                            <source srcset="assets/amoroso/amoroso21.jpg" type="image/jpeg">
+                            <img src="assets/amoroso/amoroso21.jpg" alt="Balneário do Amoroso" class="card-img" loading="lazy">
+                        </picture>
                         <video data-src="assets/amoroso/Balneario do Amoroso.mp4" class="card-img" muted loop playsinline poster="assets/amoroso/amoroso1.jpg" data-alt="Vídeo do Balneário do Amoroso" preload="none"></video>
                         <button class="card-nav prev" aria-label="Foto anterior">&#10094;</button>
                         <button class="card-nav next" aria-label="Próxima foto">&#10095;</button>
@@ -358,12 +904,36 @@ O local se caracteriza por um relevo mesclado (plano e acidentado), que torna se
 
                 <div class="tourist-card" data-point="sonho-meu">
                     <div class="card-image">
-                        <img src="assets/LAGO-DOS-SONHOS/lagodossonhos1.jpg" alt="Lago dos Sonhos" class="card-img active" loading="lazy">
-                        <img src="assets/LAGO-DOS-SONHOS/lagodossonhos2.jpg" alt="Lago dos Sonhos" class="card-img" loading="lazy">
-                        <img src="assets/LAGO-DOS-SONHOS/lagodossonhos3.jpg" alt="Lago dos Sonhos" class="card-img" loading="lazy">
-                        <img src="assets/LAGO-DOS-SONHOS/lagodossonhos4.jpg" alt="Lago dos Sonhos" class="card-img" loading="lazy">
-                        <img src="assets/LAGO-DOS-SONHOS/lagodossonhos5.jpg" alt="Lago dos Sonhos" class="card-img" loading="lazy">
-                        <img src="assets/LAGO-DOS-SONHOS/lagodossonhos6.jpg" alt="Lago dos Sonhos" class="card-img" loading="lazy">
+                        <picture>
+                            <source srcset="assets/LAGO-DOS-SONHOS/lagodossonhos1.webp" type="image/webp">
+                            <source srcset="assets/LAGO-DOS-SONHOS/lagodossonhos1.jpg" type="image/jpeg">
+                            <img src="assets/LAGO-DOS-SONHOS/lagodossonhos1.jpg" alt="Lago dos Sonhos" class="card-img active" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/LAGO-DOS-SONHOS/lagodossonhos2.webp" type="image/webp">
+                            <source srcset="assets/LAGO-DOS-SONHOS/lagodossonhos2.jpg" type="image/jpeg">
+                            <img src="assets/LAGO-DOS-SONHOS/lagodossonhos2.jpg" alt="Lago dos Sonhos" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/LAGO-DOS-SONHOS/lagodossonhos3.webp" type="image/webp">
+                            <source srcset="assets/LAGO-DOS-SONHOS/lagodossonhos3.jpg" type="image/jpeg">
+                            <img src="assets/LAGO-DOS-SONHOS/lagodossonhos3.jpg" alt="Lago dos Sonhos" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/LAGO-DOS-SONHOS/lagodossonhos4.webp" type="image/webp">
+                            <source srcset="assets/LAGO-DOS-SONHOS/lagodossonhos4.jpg" type="image/jpeg">
+                            <img src="assets/LAGO-DOS-SONHOS/lagodossonhos4.jpg" alt="Lago dos Sonhos" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/LAGO-DOS-SONHOS/lagodossonhos5.webp" type="image/webp">
+                            <source srcset="assets/LAGO-DOS-SONHOS/lagodossonhos5.jpg" type="image/jpeg">
+                            <img src="assets/LAGO-DOS-SONHOS/lagodossonhos5.jpg" alt="Lago dos Sonhos" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/LAGO-DOS-SONHOS/lagodossonhos6.webp" type="image/webp">
+                            <source srcset="assets/LAGO-DOS-SONHOS/lagodossonhos6.jpg" type="image/jpeg">
+                            <img src="assets/LAGO-DOS-SONHOS/lagodossonhos6.jpg" alt="Lago dos Sonhos" class="card-img" loading="lazy">
+                        </picture>
                         <video data-src="assets/LAGO-DOS-SONHOS/lago dos sonhos.mp4" class="card-img" muted loop playsinline poster="assets/LAGO-DOS-SONHOS/lagodossonhos1.jpg" data-alt="Vídeo do Balneário Lago dos Sonhos" preload="none"></video>
                         <button class="card-nav prev" aria-label="Foto anterior">&#10094;</button>
                         <button class="card-nav next" aria-label="Próxima foto">&#10095;</button>
@@ -382,15 +952,51 @@ O local se caracteriza por um relevo mesclado (plano e acidentado), que torna se
 
                 <div class="tourist-card" data-point="primavera">
                     <div class="card-image">
-                        <img src="assets/RECANTO-SILVA/recantosilva1.jpg" alt="Balneário Recanto Silva" class="card-img active" loading="lazy">
-                        <img src="assets/RECANTO-SILVA/recantosilva2.jpg" alt="Balneário Recanto Silva" class="card-img" loading="lazy">
-                        <img src="assets/RECANTO-SILVA/recantosilva3.jpg" alt="Balneário Recanto Silva" class="card-img" loading="lazy">
-                        <img src="assets/RECANTO-SILVA/recantosilva4.jpg" alt="Balneário Recanto Silva" class="card-img" loading="lazy">
-                        <img src="assets/RECANTO-SILVA/recantosilva5.jpg" alt="Balneário Recanto Silva" class="card-img" loading="lazy">
-                        <img src="assets/RECANTO-SILVA/recantosilva6.jpg" alt="Balneário Recanto Silva" class="card-img" loading="lazy">
-                        <img src="assets/RECANTO-SILVA/recantosilva7.jpg" alt="Balneário Recanto Silva" class="card-img" loading="lazy">
-                        <img src="assets/RECANTO-SILVA/recantosilva8.jpg" alt="Balneário Recanto Silva" class="card-img" loading="lazy">
-                        <img src="assets/RECANTO-SILVA/recantosilva9.jpg" alt="Balneário Recanto Silva" class="card-img" loading="lazy">
+                        <picture>
+                            <source srcset="assets/RECANTO-SILVA/recantosilva1.webp" type="image/webp">
+                            <source srcset="assets/RECANTO-SILVA/recantosilva1.jpg" type="image/jpeg">
+                            <img src="assets/RECANTO-SILVA/recantosilva1.jpg" alt="Balneário Recanto Silva" class="card-img active" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/RECANTO-SILVA/recantosilva2.webp" type="image/webp">
+                            <source srcset="assets/RECANTO-SILVA/recantosilva2.jpg" type="image/jpeg">
+                            <img src="assets/RECANTO-SILVA/recantosilva2.jpg" alt="Balneário Recanto Silva" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/RECANTO-SILVA/recantosilva3.webp" type="image/webp">
+                            <source srcset="assets/RECANTO-SILVA/recantosilva3.jpg" type="image/jpeg">
+                            <img src="assets/RECANTO-SILVA/recantosilva3.jpg" alt="Balneário Recanto Silva" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/RECANTO-SILVA/recantosilva4.webp" type="image/webp">
+                            <source srcset="assets/RECANTO-SILVA/recantosilva4.jpg" type="image/jpeg">
+                            <img src="assets/RECANTO-SILVA/recantosilva4.jpg" alt="Balneário Recanto Silva" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/RECANTO-SILVA/recantosilva5.webp" type="image/webp">
+                            <source srcset="assets/RECANTO-SILVA/recantosilva5.jpg" type="image/jpeg">
+                            <img src="assets/RECANTO-SILVA/recantosilva5.jpg" alt="Balneário Recanto Silva" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/RECANTO-SILVA/recantosilva6.webp" type="image/webp">
+                            <source srcset="assets/RECANTO-SILVA/recantosilva6.jpg" type="image/jpeg">
+                            <img src="assets/RECANTO-SILVA/recantosilva6.jpg" alt="Balneário Recanto Silva" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/RECANTO-SILVA/recantosilva7.webp" type="image/webp">
+                            <source srcset="assets/RECANTO-SILVA/recantosilva7.jpg" type="image/jpeg">
+                            <img src="assets/RECANTO-SILVA/recantosilva7.jpg" alt="Balneário Recanto Silva" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/RECANTO-SILVA/recantosilva8.webp" type="image/webp">
+                            <source srcset="assets/RECANTO-SILVA/recantosilva8.jpg" type="image/jpeg">
+                            <img src="assets/RECANTO-SILVA/recantosilva8.jpg" alt="Balneário Recanto Silva" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/RECANTO-SILVA/recantosilva9.webp" type="image/webp">
+                            <source srcset="assets/RECANTO-SILVA/recantosilva9.jpg" type="image/jpeg">
+                            <img src="assets/RECANTO-SILVA/recantosilva9.jpg" alt="Balneário Recanto Silva" class="card-img" loading="lazy">
+                        </picture>
                         <button class="card-nav prev" aria-label="Foto anterior">&#10094;</button>
                         <button class="card-nav next" aria-label="Próxima foto">&#10095;</button>
                     </div>
@@ -404,6 +1010,72 @@ Telefone: (69) 99969-7557
                         </div>
                         <p class="card-address">
                             <i data-lucide="map-pin"></i> <a href="https://www.google.com/maps/place/Balne%C3%A1rio+Recanto+Silva/@-11.7037779,-61.2459204,1072m/data=!3m2!1e3!4b1!4m6!3m5!1s0x93b7e3f4c89e123d:0xf75cf5158d5b2757!8m2!3d-11.7037779!4d-61.2433455!16s%2Fg%2F11f5jp23rl?entry=ttu&g_ep=EgoyMDI1MDgyNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">RO-010, KM 6 - Pimenta Bueno</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="tourist-card" data-point="primavera">
+                    <div class="card-image">
+                        <picture>
+                            <source srcset="assets/lagoa-azul/lagoa-azul1.webp" type="image/webp">
+                            <source srcset="assets/lagoa-azul/lagoa-azul1.jpg" type="image/jpeg">
+                            <img src="assets/lagoa-azul/lagoa-azul1.jpg" alt="Balneário Lagoa Azul" class="card-img active" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/lagoa-azul/lagoa-azul2.webp" type="image/webp">
+                            <source srcset="assets/lagoa-azul/lagoa-azul2.jpg" type="image/jpeg">
+                            <img src="assets/lagoa-azul/lagoa-azul2.jpg" alt="Balneário Lagoa Azul" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/lagoa-azul/lagoa-azul3.webp" type="image/webp">
+                            <source srcset="assets/lagoa-azul/lagoa-azul3.jpg" type="image/jpeg">
+                            <img src="assets/lagoa-azul/lagoa-azul3.jpg" alt="Balneário Lagoa Azul" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/lagoa-azul/lagoa-azul4.webp" type="image/webp">
+                            <source srcset="assets/lagoa-azul/lagoa-azul4.jpg" type="image/jpeg">
+                            <img src="assets/lagoa-azul/lagoa-azul4.jpg" alt="Balneário Lagoa Azul" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/lagoa-azul/lagoa-azul5.webp" type="image/webp">
+                            <source srcset="assets/lagoa-azul/lagoa-azul5.jpg" type="image/jpeg">
+                            <img src="assets/lagoa-azul/lagoa-azul5.jpg" alt="Balneário Lagoa Azul" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/lagoa-azul/lagoa-azul6.webp" type="image/webp">
+                            <source srcset="assets/lagoa-azul/lagoa-azul6.jpg" type="image/jpeg">
+                            <img src="assets/lagoa-azul/lagoa-azul6.jpg" alt="Balneário Lagoa Azul" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/lagoa-azul/lagoa-azul7.webp" type="image/webp">
+                            <source srcset="assets/lagoa-azul/lagoa-azul7.jpg" type="image/jpeg">
+                            <img src="assets/lagoa-azul/lagoa-azul7.jpg" alt="Balneário Lagoa Azul" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/lagoa-azul/lagoa-azul8.webp" type="image/webp">
+                            <source srcset="assets/lagoa-azul/lagoa-azul8.jpg" type="image/jpeg">
+                            <img src="assets/lagoa-azul/lagoa-azul8.jpg" alt="Balneário Lagoa Azul" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/lagoa-azul/lagoa-azul9.webp" type="image/webp">
+                            <source srcset="assets/lagoa-azul/lagoa-azul9.jpg" type="image/jpeg">
+                            <img src="assets/lagoa-azul/lagoa-azul9.jpg" alt="Balneário Lagoa Azul" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/lagoa-azul/lagoa-azul10.webp" type="image/webp">
+                            <source srcset="assets/lagoa-azul/lagoa-azul10.jpg" type="image/jpeg">
+                            <img src="assets/lagoa-azul/lagoa-azul10.jpg" alt="Balneário Lagoa Azul" class="card-img" loading="lazy">
+                        </picture>
+                        <button class="card-nav prev" aria-label="Foto anterior">&#10094;</button>
+                        <button class="card-nav next" aria-label="Próxima foto">&#10095;</button>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Balneário Lagoa Azul</h3>
+                        <p class="card-description">Situada na RO 010, no quilômetro 16, a Lagoa Azul é facilmente acessível por uma estrada de chão, estando a menos de 1 km de distância. O local fascina pela pureza de suas águas cristalinas complementadas por uma bela queda d’água.</p>
+                        <div class="card-actions">
+                            <button class="view-gallery-btn" type="button"><i data-lucide="images"></i> Ver galeria</button>
+                        </div>
+                        <p class="card-address">
+                            <i data-lucide="map-pin"></i> <a href="https://www.google.com/maps/place/Lagoa+Azul/@-11.7367303,-61.3308198,129m/data=!3m1!1e3!4m6!3m5!1s0x93c81d7cf3b791bb:0xed21030227e311a7!8m2!3d-11.736837!4d-61.3309622!16s%2Fg%2F11bc8c1hd2?entry=ttu&g_ep=EgoyMDI1MDkyOC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">RO-010, KM 16 - Pimenta Bueno</a>
                         </p>
                     </div>
                 </div>
@@ -499,9 +1171,62 @@ Telefone: (69) 99969-7557
                     <p class="card-description">Um verdadeiro tesouro natural com cachoeiras exuberantes e cânions com paredões de até 30 metros. Situado a 70 km de Pimenta Bueno, o local conta com mais de 16 quedas d'água, criando um cenário perfeito para rapel, escalada, tirolesa, rafting e trekking. É um paraíso para ecoturismo, contemplação e fotografia.</p>
                 </div>
 
-                <div class="adventure-item">
-                    <h3>Etnoturismo</h3>
-                    <p class="card-description">As comunidades João Bravo e Asanuééj, do povo Cinta Larga, no Território Indígena Roosevelt, oferecem experiências autênticas de etnoturismo. Vivencie trilhas, oficinas de grafismo, apresentações culturais e rodas de conversa, valorizando o patrimônio cultural indígena e o potencial ecológico e histórico da região.</p>
+                <!-- Card de Etnoturismo convertido para o formato tourist-card para incluir galeria -->
+                <div class="tourist-card" data-point="etnoturismo">
+                    <div class="card-image">
+                        <picture>
+                            <source srcset="assets/etnoturismo/etnoturismo1.webp" type="image/webp">
+                            <source srcset="assets/etnoturismo/etnoturismo1.jpg" type="image/jpeg">
+                            <img src="assets/etnoturismo/etnoturismo1.jpg" alt="Cultura indígena Asanuééj" class="card-img active" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/etnoturismo/etnoturismo2.webp" type="image/webp">
+                            <source srcset="assets/etnoturismo/etnoturismo2.jpg" type="image/jpeg">
+                            <img src="assets/etnoturismo/etnoturismo2.jpg" alt="Cultura indígena Asanuééj" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/etnoturismo/etnoturismo3.webp" type="image/webp">
+                            <source srcset="assets/etnoturismo/etnoturismo3.jpg" type="image/jpeg">
+                            <img src="assets/etnoturismo/etnoturismo3.jpg" alt="Cultura indígena Asanuééj" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/etnoturismo/etnoturismo4.webp" type="image/webp">
+                            <source srcset="assets/etnoturismo/etnoturismo4.jpg" type="image/jpeg">
+                            <img src="assets/etnoturismo/etnoturismo4.jpg" alt="Cultura indígena Asanuééj" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/etnoturismo/etnoturismo5.webp" type="image/webp">
+                            <source srcset="assets/etnoturismo/etnoturismo5.jpg" type="image/jpeg">
+                            <img src="assets/etnoturismo/etnoturismo5.jpg" alt="Cultura indígena Asanuééj" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/etnoturismo/etnoturismo6.webp" type="image/webp">
+                            <source srcset="assets/etnoturismo/etnoturismo6.jpg" type="image/jpeg">
+                            <img src="assets/etnoturismo/etnoturismo6.jpg" alt="Cultura indígena Asanuééj" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/etnoturismo/etnoturismo7.webp" type="image/webp">
+                            <source srcset="assets/etnoturismo/etnoturismo7.jpg" type="image/jpeg">
+                            <img src="assets/etnoturismo/etnoturismo7.jpg" alt="Cultura indígena Asanuééj" class="card-img" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/etnoturismo/etnoturismo8.webp" type="image/webp">
+                            <source srcset="assets/etnoturismo/etnoturismo8.jpg" type="image/jpeg">
+                            <img src="assets/etnoturismo/etnoturismo8.jpg" alt="Cultura indígena Asanuééj" class="card-img" loading="lazy">
+                        </picture>
+                        <video data-src="assets/etnoturismo/etnoturismo1.mp4" class="card-img" muted loop playsinline poster="assets/etnoturismo/etnoturismo1.jpg" data-alt="Vídeo da Festa Cultural Asanuééj" preload="none"></video>
+                        <video data-src="assets/etnoturismo/etnoturismo2.mp4" class="card-img" muted loop playsinline poster="assets/etnoturismo/etnoturismo2.jpg" data-alt="Vídeo da Festa Cultural Asanuééj" preload="none"></video>
+                        <video data-src="assets/etnoturismo/etnoturismo3.mp4" class="card-img" muted loop playsinline poster="assets/etnoturismo/etnoturismo3.jpg" data-alt="Vídeo da Festa Cultural Asanuééj" preload="none"></video>
+                        <button class="card-nav prev" aria-label="Foto anterior">&#10094;</button>
+                        <button class="card-nav next" aria-label="Próxima foto">&#10095;</button>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Etnoturismo</h3>
+                        <p class="card-description">As comunidades João Bravo e Asanuééj, do povo Cinta Larga, no Território Indígena Roosevelt, oferecem experiências autênticas de etnoturismo. Vivencie trilhas, oficinas de grafismo, apresentações culturais e rodas de conversa, valorizando o patrimônio cultural indígena e o potencial ecológico e histórico da região.</p>
+                        <div class="card-actions">
+                            <button class="view-gallery-btn" type="button"><i data-lucide="images"></i> Ver galeria</button>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="adventure-item">
@@ -517,8 +1242,16 @@ Telefone: (69) 99969-7557
                 <!-- Card do Paramotor (estilo Balneário) -->
                 <div class="tourist-card center-card" data-point="paramotor">
                     <div class="card-image">
-                        <img src="assets/paramotor/paramotor1.jpg" alt="Voo de Paramotor sobre Pimenta Bueno" class="card-img active" loading="lazy">
-                        <img src="assets/paramotor/paramotor2.jpg" alt="Piloto de Paramotor" class="card-img" loading="lazy">
+                        <picture>
+                            <source srcset="assets/paramotor/paramotor1.webp" type="image/webp">
+                            <source srcset="assets/paramotor/paramotor1.jpg" type="image/jpeg">
+                            <img src="assets/paramotor/paramotor1.jpg" alt="Voo de Paramotor sobre Pimenta Bueno" class="card-img active" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="assets/paramotor/paramotor2.webp" type="image/webp">
+                            <source srcset="assets/paramotor/paramotor2.jpg" type="image/jpeg">
+                            <img src="assets/paramotor/paramotor2.jpg" alt="Piloto de Paramotor" class="card-img" loading="lazy">
+                        </picture>
                         <video data-src="assets/paramotor/paramotor1.mp4" class="card-img" muted loop playsinline poster="assets/paramotor/poster.jpg" data-alt="Vídeo de Paramotor 1" preload="none"></video>
                         <video data-src="assets/paramotor/paramotor2.mp4" class="card-img" muted loop playsinline poster="assets/paramotor/poster.jpg" data-alt="Vídeo de Paramotor 2" preload="none"></video>
                         <video data-src="assets/paramotor/paramotor3.mp4" class="card-img" muted loop playsinline poster="assets/paramotor/poster.jpg" data-alt="Vídeo de Paramotor 3" preload="none"></video>
@@ -594,7 +1327,7 @@ Telefone: (69) 99969-7557
                         <li><a href="https://www.google.com/maps/search/?api=1&query=Av.+Pres.+Dutra+1007+-+Pioneiros,+Pimenta+Bueno" target="_blank" rel="noopener noreferrer"><i data-lucide="map-pin"></i> Av. Pres. Dutra 1007 - Pioneiros</a></li>
                         <li><a href="https://wa.me/5569999304900" target="_blank" rel="noopener noreferrer"><i data-lucide="phone"></i> (69) 9 9930-4900</a></li>
                         <li><a href="mailto:autarquiamect@pimentabueno.ro.gov.br"><i data-lucide="mail"></i> autarquiamect@pimentabueno.ro.gov.br</a></li>
-                        <li><a href="https://ampib.pimentabueno.ro.gov.br/site/" target="_blank" rel="noopener noreferrer"><i data-lucide="globe"></i> Visite o site</a></li>
+                        <li><a href="https://ampib.pimentabueno.ro.gov.br/site/" target="_blank" rel="noopener noreferrer"><i data-lucide="globe"></i> Visite o site: https://ampib.pimentabueno.ro.gov.br/site/</a></li>
                     </ul>
                 </div>
             </div>
@@ -607,8 +1340,8 @@ Telefone: (69) 99969-7557
     <!-- Modal/Lightbox para a Galeria -->
     <div id="gallery-modal" class="modal">
         <span class="modal-close" aria-label="Fechar">&times;</span>
-        <button class="modal-nav prev" aria-label="Foto anterior"><i data-lucide="chevron-left"></i></button>
-        <button class="modal-nav next" aria-label="Próxima foto"><i data-lucide="chevron-right"></i></button>
+        <button class="modal-nav prev" aria-label="Foto anterior"><i data-lucide="chevron-left" aria-hidden="true"></i></button>
+        <button class="modal-nav next" aria-label="Próxima foto"><i data-lucide="chevron-right" aria-hidden="true"></i></button>
         <img class="modal-content" id="modal-image" alt="Imagem da galeria em tamanho ampliado">
         <video class="modal-content" id="modal-video" controls style="display: none;"></video>
         <div id="modal-caption"></div>

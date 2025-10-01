@@ -577,8 +577,12 @@ body {
 .modal-content {
     margin: auto;
     display: block;
-    width: 80%;
-    max-width: 900px;
+    /* Ajuste para evitar achatamento: width: auto e max-width */
+    width: auto;
+    max-width: 90%; /* Usa no máximo 90% da largura da tela */
+    max-width: 900px; /* Limite máximo em pixels */
+    /* Adicionado para garantir que a imagem não ultrapasse a altura da tela */
+    max-height: 80vh; 
     animation-name: zoom;
     animation-duration: 0.6s;
 }

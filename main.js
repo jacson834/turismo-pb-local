@@ -171,8 +171,53 @@ if (loadMoreBtn) {
 }
 
 // Inicializa os mini-carrosséis dos cards
-document.querySelectorAll('.tourist-card .card-image').forEach(container => {
-    const mediaItems = container.querySelectorAll('.card-img'); // Agora inclui img e video
+document.querySelectorAll('.tourist-card').forEach(card => {
+    const container = card.querySelector('.card-image');
+    if (!container) return;
+
+    // Lógica para gerar mídia dinamicamente a partir de data-attributes
+    if (card.dataset.galleryItems) {
+        try {
+            const items = JSON.parse(card.dataset.galleryItems);
+            items.forEach((item, index) => {
+                let mediaElement;
+                if (item.type === 'image') {
+                    const picture = document.createElement('picture');
+                    const webpSource = document.createElement('source');
+                    webpSource.srcset = `${item.path}.webp`;
+                    webpSource.type = 'image/webp';
+
+                    const jpgSource = document.createElement('source');
+                    jpgSource.srcset = `${item.path}.jpg`;
+                    jpgSource.type = 'image/jpeg';
+
+                    const img = document.createElement('img');
+                    img.src = `${item.path}.jpg`;
+                    img.alt = card.querySelector('.card-title').textContent;
+                    img.classList.add('card-img');
+                    img.loading = 'lazy';
+                    if (index === 0) img.classList.add('active');
+
+                    picture.append(webpSource, jpgSource, img);
+                    mediaElement = picture;
+
+                } else if (item.type === 'video') {
+                    mediaElement = document.createElement('video');
+                    mediaElement.dataset.src = `${item.path}.mp4`;
+                    mediaElement.classList.add('card-img');
+                    mediaElement.muted = true;
+                    mediaElement.loop = true;
+                    mediaElement.playsInline = true;
+                    mediaElement.poster = item.poster || '';
+                    mediaElement.dataset.alt = item.alt || 'Vídeo';
+                    mediaElement.preload = 'none';
+                }
+                if (mediaElement) container.prepend(mediaElement);
+            });
+        } catch (e) { console.error('Erro ao parsear JSON da galeria do card:', e); }
+    }
+
+    const mediaItems = container.querySelectorAll('.card-img');
     const prevBtn = container.querySelector('.card-nav.prev');
     const nextBtn = container.querySelector('.card-nav.next');
     let currentIndex = 0;
@@ -234,31 +279,34 @@ document.querySelectorAll('.view-gallery-btn').forEach(btn => {
         const card = e.target.closest('.tourist-card');
         if (!card) return;
 
-        const cardMedia = card.querySelectorAll('.card-image .card-img'); // Pega tanto <img> quanto <video>
         const cardTitle = card.querySelector('.card-title').textContent;
+        let galleryData = [];
 
-        // Se não houver imagens, não faz nada
-        if (cardMedia.length === 0) return;
+        // Prioriza a galeria do data-attribute se existir
+        if (card.dataset.galleryItems) {
+            const items = JSON.parse(card.dataset.galleryItems);
+            galleryData = items.map(item => ({
+                type: item.type,
+                src: item.type === 'image' ? `${item.path}.jpg` : `${item.path}.mp4`,
+                title: `${cardTitle} - ${item.alt || (item.type === 'image' ? 'Foto' : 'Vídeo')}`
+            }));
+        } else {
+            // Fallback para a lógica antiga se não houver data-attribute
+            const cardMedia = card.querySelectorAll('.card-image .card-img');
+            galleryData = Array.from(cardMedia).map(media => {
+                const isVideo = media.tagName === 'VIDEO';
+                return {
+                    type: isVideo ? 'video' : 'image',
+                    src: media.src || media.dataset.src, // Pega src de img ou data-src de video
+                    title: `${cardTitle} - ${media.alt || media.dataset.alt || (isVideo ? 'Vídeo' : 'Foto')}`
+                };
+            }).filter(item => item.src);
+        }
 
-        // Transforma a NodeList de imagens em um array de objetos para o modal
-        currentGallery = Array.from(cardMedia).map(media => {
-            if (media.tagName === 'IMG') {
-                return {
-                    type: 'image',
-                    src: media.src,
-                    title: `${cardTitle} - ${media.alt}`
-                };
-            } else if (media.tagName === 'VIDEO') {
-                return {
-                    type: 'video',
-                    src: media.src,
-                    title: `${cardTitle} - ${media.dataset.alt || 'Vídeo'}`
-                };
-            }
-        }).filter(Boolean); // Filtra qualquer item nulo
+        if (galleryData.length === 0) return;
 
         currentIndex = 0; // Começa da primeira imagem da galeria do card
-        openModalWith(currentGallery, currentIndex);
+        openModalWith(galleryData, currentIndex);
     });
 });
 
