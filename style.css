@@ -981,6 +981,7 @@ html {
 
     /* Correção para o menu móvel não causar rolagem horizontal */
     body.nav-open {
+        overflow: hidden; /* Impede o scroll do corpo da página quando o menu está aberto */
         overflow-x: hidden;
     }
     
