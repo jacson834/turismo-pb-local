@@ -978,3 +978,9 @@ html {
             height: 600px; /* Altura mais adequada para telas menores */
         }
     }
+
+    /* Correção para o menu móvel não causar rolagem horizontal */
+    body.nav-open {
+        overflow-x: hidden;
+    }
+    
