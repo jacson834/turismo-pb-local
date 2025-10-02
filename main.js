@@ -159,6 +159,9 @@ document.querySelectorAll('.tourist-card').forEach(card => {
     const container = card.querySelector('.card-image');
     if (!container) return;
 
+    const prevBtn = container.querySelector('.card-nav.prev');
+    const nextBtn = container.querySelector('.card-nav.next');
+
     // Lógica para gerar mídia dinamicamente a partir de data-attributes
     if (card.dataset.galleryItems) {
         try {
@@ -193,14 +196,13 @@ document.querySelectorAll('.tourist-card').forEach(card => {
                     mediaElement.dataset.alt = item.alt || 'Vídeo';
                     mediaElement.preload = 'none';
                 }
-                if (mediaElement) container.prepend(mediaElement);
+                // Insere a mídia antes dos botões de navegação para manter o z-index
+                if (mediaElement) container.insertBefore(mediaElement, prevBtn);
             });
         } catch (e) { console.error('Erro ao parsear JSON da galeria do card:', e); }
     }
 
     const mediaItems = container.querySelectorAll('.card-img');
-    const prevBtn = container.querySelector('.card-nav.prev');
-    const nextBtn = container.querySelector('.card-nav.next');
     let currentIndex = 0;
 
     // Se houver 1 foto ou menos, esconde as setas
@@ -271,17 +273,6 @@ function getGalleryDataFromCard(card) {
             console.error('Erro ao parsear JSON da galeria do card:', e);
             return [];
         }
-    } else {
-        // Fallback para a lógica antiga se não houver data-attribute
-        const cardMedia = card.querySelectorAll('.card-image .card-img');
-        galleryData = Array.from(cardMedia).map(media => {
-            const isVideo = media.tagName === 'VIDEO';
-            return {
-                type: isVideo ? 'video' : 'image',
-                src: media.src || media.dataset.src, // Pega src de img ou data-src de video
-                title: `${cardTitle} - ${media.alt || media.dataset.alt || (isVideo ? 'Vídeo' : 'Foto')}`
-            };
-        }).filter(item => item.src);
     }
     return galleryData;
 }
