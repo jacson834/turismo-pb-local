@@ -74,22 +74,6 @@ const modalNextBtn = document.querySelector(".modal-nav.next");
 let currentGallery = [];
 let currentIndex = 0;
 
-function updateModalContent(item) {
-    if (!item) return;
-    const style = window.getComputedStyle(item);
-    const bgImage = style.getPropertyValue('--bg-image');
-    if (!bgImage) return;
-
-    const match = bgImage.match(/url\(['"]?(.*?)['"]?\)/);
-    if (!match || !match[1]) return;
-
-    const imageUrl = match[1];
-    const title = item.getAttribute('data-title');
-
-    modalImg.src = imageUrl;
-    captionText.innerHTML = title;
-}
-
 function openModalWith(gallery, startIndex) {
     currentGallery = gallery;
     currentIndex = startIndex;
@@ -97,25 +81,25 @@ function openModalWith(gallery, startIndex) {
     modal.classList.add('active');
     lucide.createIcons(); // Renderiza os ícones de seta no modal
 }
-
-document.querySelectorAll('.gallery-item').forEach(item => {
-    item.addEventListener('click', function() {
-        const visibleItems = Array.from(document.querySelectorAll('.gallery-item:not(.hidden)'));
-        const clickedIndex = visibleItems.indexOf(this);
-
-        const galleryData = visibleItems.map(galleryItem => {
-            const style = window.getComputedStyle(galleryItem);
+ 
+const mainGalleryGrid = document.querySelector('.gallery-grid');
+if (mainGalleryGrid) {
+    mainGalleryGrid.addEventListener('click', function(e) {
+        const clickedItem = e.target.closest('.gallery-item');
+        if (!clickedItem) return;
+ 
+        const visibleItems = Array.from(this.querySelectorAll('.gallery-item:not(.hidden)'));
+        const clickedIndex = visibleItems.indexOf(clickedItem);
+ 
+        const galleryData = visibleItems.map(item => {
+            const style = window.getComputedStyle(item);
             const bgImage = style.getPropertyValue('--bg-image').match(/url\(['"]?(.*?)['"]?\)/);
-            return {
-                type: 'image',
-                src: bgImage ? bgImage[1] : '',
-                title: galleryItem.getAttribute('data-title') || ''
-            };
+            return { type: 'image', src: bgImage ? bgImage[1] : '', title: item.getAttribute('data-title') || '' };
         });
-
+ 
         openModalWith(galleryData, clickedIndex);
     });
-});
+}
 
 function showNextImage() {
     if (currentGallery.length === 0) return;
@@ -183,9 +167,6 @@ document.querySelectorAll('.tourist-card').forEach(card => {
                 let mediaElement;
                 if (item.type === 'image') {
                     const picture = document.createElement('picture');
-                    const webpSource = document.createElement('source');
-                    webpSource.srcset = `${item.path}.webp`;
-                    webpSource.type = 'image/webp';
 
                     const jpgSource = document.createElement('source');
                     jpgSource.srcset = `${item.path}.jpg`;
@@ -198,7 +179,7 @@ document.querySelectorAll('.tourist-card').forEach(card => {
                     img.loading = 'lazy';
                     if (index === 0) img.classList.add('active');
 
-                    picture.append(webpSource, jpgSource, img);
+                    picture.append(jpgSource, img);
                     mediaElement = picture;
 
                 } else if (item.type === 'video') {
@@ -273,36 +254,44 @@ document.querySelectorAll('.card-content').forEach(cardContent => {
     }
 });
 
-// Lógica para o botão "Ver galeria" nos cards
-document.querySelectorAll('.view-gallery-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        const card = e.target.closest('.tourist-card');
-        if (!card) return;
+function getGalleryDataFromCard(card) {
+    const cardTitle = card.querySelector('.card-title').textContent;
+    let galleryData = [];
 
-        const cardTitle = card.querySelector('.card-title').textContent;
-        let galleryData = [];
-
-        // Prioriza a galeria do data-attribute se existir
-        if (card.dataset.galleryItems) {
+    // Prioriza a galeria do data-attribute se existir
+    if (card.dataset.galleryItems) {
+        try {
             const items = JSON.parse(card.dataset.galleryItems);
             galleryData = items.map(item => ({
                 type: item.type,
                 src: item.type === 'image' ? `${item.path}.jpg` : `${item.path}.mp4`,
                 title: `${cardTitle} - ${item.alt || (item.type === 'image' ? 'Foto' : 'Vídeo')}`
             }));
-        } else {
-            // Fallback para a lógica antiga se não houver data-attribute
-            const cardMedia = card.querySelectorAll('.card-image .card-img');
-            galleryData = Array.from(cardMedia).map(media => {
-                const isVideo = media.tagName === 'VIDEO';
-                return {
-                    type: isVideo ? 'video' : 'image',
-                    src: media.src || media.dataset.src, // Pega src de img ou data-src de video
-                    title: `${cardTitle} - ${media.alt || media.dataset.alt || (isVideo ? 'Vídeo' : 'Foto')}`
-                };
-            }).filter(item => item.src);
+        } catch (e) {
+            console.error('Erro ao parsear JSON da galeria do card:', e);
+            return [];
         }
+    } else {
+        // Fallback para a lógica antiga se não houver data-attribute
+        const cardMedia = card.querySelectorAll('.card-image .card-img');
+        galleryData = Array.from(cardMedia).map(media => {
+            const isVideo = media.tagName === 'VIDEO';
+            return {
+                type: isVideo ? 'video' : 'image',
+                src: media.src || media.dataset.src, // Pega src de img ou data-src de video
+                title: `${cardTitle} - ${media.alt || media.dataset.alt || (isVideo ? 'Vídeo' : 'Foto')}`
+            };
+        }).filter(item => item.src);
+    }
+    return galleryData;
+}
 
+// Lógica para o botão "Ver galeria" nos cards
+document.querySelectorAll('.view-gallery-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        const card = e.target.closest('.tourist-card');
+        if (!card) return;
+        const galleryData = getGalleryDataFromCard(card);
         if (galleryData.length === 0) return;
 
         currentIndex = 0; // Começa da primeira imagem da galeria do card
