@@ -26,12 +26,12 @@ const observer = new IntersectionObserver((entries) => {
             card.classList.add('animate');
 
             // Lógica para carregar vídeos quando o card se torna visível
-            const videos = card.querySelectorAll('video[data-src]');
-            videos.forEach(video => {
+            const mediaToLoad = card.querySelectorAll('[data-src]');
+            mediaToLoad.forEach(media => {
                 // Carrega o vídeo e remove o data-src para não carregar de novo
-                video.src = video.dataset.src;
-                video.removeAttribute('data-src');
-                video.load(); // Inicia o carregamento do vídeo
+                media.src = media.dataset.src;
+                media.removeAttribute('data-src');
+                if (media.tagName === 'VIDEO') media.load(); // Inicia o carregamento do vídeo
             });
 
             // Para de observar o card depois que a animação e o carregamento foram iniciados
@@ -195,13 +195,13 @@ document.querySelectorAll('.tourist-card').forEach(card => {
                     jpgSource.type = 'image/jpeg';
 
                     const img = document.createElement('img');
-                    img.src = item.path;
+                    img.dataset.src = item.path; // Usamos data-src para lazy loading
                     img.alt = card.querySelector('.card-title').textContent;
                     img.classList.add('card-img');
-                    img.loading = 'lazy';
                     if (index === 0) img.classList.add('active');
 
                     picture.append(jpgSource, img);
+                    // A imagem inicial já é carregada pelo observer, então não precisa de src aqui
                     mediaElement = picture;
 
                 } else if (item.type === 'video') {
