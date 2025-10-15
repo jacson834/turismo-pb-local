@@ -771,8 +771,9 @@ body {
 /* Responsive */
 @media (max-width: 768px) {
     .tourist-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
+        /* Em vez de grid, ajustamos o flex para empilhar os itens */
+        flex-direction: column;
+        align-items: center; /* Centraliza os cards na coluna */
     }
     
     .gallery-grid {

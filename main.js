@@ -190,15 +190,12 @@ document.querySelectorAll('.tourist-card').forEach(card => {
                 if (item.type === 'image') {
                     const picture = document.createElement('picture');
                     
-                    // Determina a extensão correta (.jpg ou .JPG)
-                    const extension = item.path.includes('PRAINHA') ? '.JPG' : '.jpg';
-
                     const jpgSource = document.createElement('source');
-                    jpgSource.srcset = `${item.path}${extension}`;
+                    jpgSource.srcset = item.path;
                     jpgSource.type = 'image/jpeg';
 
                     const img = document.createElement('img');
-                    img.src = `${item.path}${extension}`;
+                    img.src = item.path;
                     img.alt = card.querySelector('.card-title').textContent;
                     img.classList.add('card-img');
                     img.loading = 'lazy';
@@ -209,7 +206,7 @@ document.querySelectorAll('.tourist-card').forEach(card => {
 
                 } else if (item.type === 'video') {
                     mediaElement = document.createElement('video');
-                    mediaElement.dataset.src = `${item.path}.mp4`;
+                    mediaElement.dataset.src = item.path;
                     mediaElement.classList.add('card-img');
                     mediaElement.muted = true;
                     mediaElement.loop = true;
@@ -288,10 +285,7 @@ function getGalleryDataFromCard(card) {
             const items = JSON.parse(card.dataset.galleryItems);
             galleryData = items.map(item => ({
                 type: item.type,
-                // Correção para usar .JPG para a galeria da Prainha
-                src: item.type === 'image' 
-                    ? (item.path.includes('PRAINHA') ? `${item.path}.JPG` : `${item.path}.jpg`) 
-                    : `${item.path}.mp4`,
+                src: item.path,
                 title: `${cardTitle} - ${item.alt || (item.type === 'image' ? 'Foto' : 'Vídeo')}`
             }));
         } catch (e) {
