@@ -585,6 +585,7 @@ body {
     max-height: 80vh; 
     animation-name: zoom;
     animation-duration: 0.6s;
+    transition: opacity 0.3s ease-in-out; /* Adicionado para a transição suave */
 }
 
 #modal-video {

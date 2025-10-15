@@ -1,3 +1,22 @@
+// Injeta o CSS para a transição suave (fade) do carrossel dos cards
+const style = document.createElement('style');
+style.textContent = `
+    .card-image .card-img {
+        opacity: 0;
+        transition: opacity 0.4s ease-in-out;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .card-image .card-img.active {
+        opacity: 1;
+        z-index: 1; /* Garante que a imagem ativa fique na frente */
+    }
+`;
+document.head.appendChild(style);
+
 // Animação dos cards com IntersectionObserver (mais performático)
 const cards = document.querySelectorAll('.tourist-card');
 const observer = new IntersectionObserver((entries) => {
@@ -170,13 +189,16 @@ document.querySelectorAll('.tourist-card').forEach(card => {
                 let mediaElement;
                 if (item.type === 'image') {
                     const picture = document.createElement('picture');
+                    
+                    // Determina a extensão correta (.jpg ou .JPG)
+                    const extension = item.path.includes('PRAINHA') ? '.JPG' : '.jpg';
 
                     const jpgSource = document.createElement('source');
-                    jpgSource.srcset = `${item.path}.jpg`;
+                    jpgSource.srcset = `${item.path}${extension}`;
                     jpgSource.type = 'image/jpeg';
 
                     const img = document.createElement('img');
-                    img.src = `${item.path}.jpg`;
+                    img.src = `${item.path}${extension}`;
                     img.alt = card.querySelector('.card-title').textContent;
                     img.classList.add('card-img');
                     img.loading = 'lazy';
@@ -266,7 +288,10 @@ function getGalleryDataFromCard(card) {
             const items = JSON.parse(card.dataset.galleryItems);
             galleryData = items.map(item => ({
                 type: item.type,
-                src: item.type === 'image' ? `${item.path}.jpg` : `${item.path}.mp4`,
+                // Correção para usar .JPG para a galeria da Prainha
+                src: item.type === 'image' 
+                    ? (item.path.includes('PRAINHA') ? `${item.path}.JPG` : `${item.path}.jpg`) 
+                    : `${item.path}.mp4`,
                 title: `${cardTitle} - ${item.alt || (item.type === 'image' ? 'Foto' : 'Vídeo')}`
             }));
         } catch (e) {
@@ -291,25 +316,35 @@ document.querySelectorAll('.view-gallery-btn').forEach(btn => {
 });
 
 function showItemInModal(index) {
-    // Pausa e esconde o vídeo antes de trocar
-    modalVideo.pause();
-    modalVideo.style.display = 'none';
-    modalImg.style.display = 'none';
-
     const item = currentGallery[index];
     if (!item) return;
 
-    if (item.type === 'image') {
-        modalImg.src = item.src;
-        modalImg.style.display = 'block';
-    } else if (item.type === 'video') {
-        modalVideo.src = item.src;
-        modalVideo.style.display = 'block';
-        modalVideo.play();
-    }
+    // 1. Inicia o fade-out da mídia atual
+    modalImg.style.opacity = 0;
+    modalVideo.style.opacity = 0;
+    modalVideo.pause(); // Pausa o vídeo imediatamente
 
-    captionText.innerHTML = item.title;
-    lucide.createIcons();
+    // 2. Aguarda a transição de fade-out terminar para trocar o conteúdo
+    setTimeout(() => {
+        // Esconde ambos os elementos para evitar flashes
+        modalImg.style.display = 'none';
+        modalVideo.style.display = 'none';
+
+        // 3. Atualiza o src e o display do novo item
+        if (item.type === 'image') {
+            modalImg.src = item.src;
+            modalImg.style.display = 'block';
+            modalImg.style.opacity = 1; // Inicia o fade-in
+        } else if (item.type === 'video') {
+            modalVideo.src = item.src;
+            modalVideo.style.display = 'block';
+            modalVideo.play();
+            modalVideo.style.opacity = 1; // Inicia o fade-in
+        }
+
+        captionText.innerHTML = item.title;
+        lucide.createIcons();
+    }, 300); // O tempo deve ser igual ou um pouco menor que a duração da transição do CSS
 }
 
 
